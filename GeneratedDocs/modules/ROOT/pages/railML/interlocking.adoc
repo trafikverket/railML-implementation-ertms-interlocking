@@ -1,0 +1,11 @@
+= Interlocking
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| assetsForInterlockings | mandatory | 
+| radioBlockCentres | mandatory | 
+| signalBoxes | mandatory | 
+| specificInfrastructureManagers | mandatory | 
+|===
+

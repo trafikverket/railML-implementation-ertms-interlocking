@@ -1,0 +1,1 @@
+﻿2024-12-06 version 0.1 : JE, initial draft added together with sample output.

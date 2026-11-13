@@ -1,0 +1,51 @@
+= Introduction
+:page-layout: default
+:toc: macro
+:toc-title: Table of Contents
+:toclevels: 2
+
+This documentation describes the *railML 3.2 implementation* developed to handle data related to ERTMS railway interlockings.  
+It defines how railML is applied to model, pre-configure, and exchange interlocking data in a structured, standardized, and machine-readable form.
+
+Railway interlockings are key components of signalling systems, ensuring safe and efficient train operations by controlling switches, routes, and signal dependencies.  
+By applying railML 3.2, this implementation enables consistent data handling across design, pre-configuration of existing facilities (*as-is*), and configuration of new or modified interlockings.  
+It also supports reliable data exchange between Trafikverket, suppliers, and related railway applications.
+
+== Implementation Scenarios
+
+The implementation supports the following primary scenarios, aligned with the typical configuration lifecycle stages: *As-Is*, *As-Designed*, and *As-Configured (As-Built)*.
+
+* **Pre-configuration for Existing Facilities (As-Is)**  
+  railML 3.2 is used to represent the current, verified state of existing interlocking installations.  
+  This enables validation of legacy data, identification of deviations, and structured preparation for the ERTMS transition before configuration activities begin.
+
+* **Configuration of ERTMS Interlockings (As-Designed)**  
+  railML 3.2 defines how interlocking configurations are described during the design phase — including topology, logical dependencies, control tables, and relations to adjacent subsystems.  
+  The *As-Designed* dataset forms the baseline for verification, simulation, and approval prior to implementation.
+
+* **Data Exchange and Interoperability (As-Configured / As-Built)**  
+  When configurations are implemented and verified, railML files are used to exchange the resulting *As-Configured* (or *As-Built*) data between tools and stakeholders.  
+  This ensures traceability, consistency, and interoperability across design, validation, and maintenance processes within the ERTMS ecosystem.
+
+
+== CSV Specification
+
+The CSV specification serves as the primary data source for most of this documentation. It defines all signalling and interlocking elements in a structured, tabular format that is directly used to generate most of the content presented on this site.  
+
+By maintaining the information in a single, standardized CSV file, the documentation remains consistent, traceable, and easy to update.  
+The CSV also provides a practical way to access, filter, and cross-reference the same data outside this documentation — for design, configuration, and validation purposes.
+
+[NOTE]
+====
+xref:attachment$trv-ertms-interlocking.csv[You can access the CSV file here.]
+====
+
+== Extensions to the railML Schema
+
+This documentation includes Trafikverket-specific extensions to the standard railML 3.2 schema where additional elements or attributes are required for ERTMS interlocking data.
+The extensions are presented directly within the relevant schema sections throughout this site to maintain context and consistency.
+
+For complete technical details and structure definitions, refer to the full XSD file.
+
+[NOTE]
+xref:attachment$ERTMSInterlockingExtension.xsd[You can access the XSD file here.]

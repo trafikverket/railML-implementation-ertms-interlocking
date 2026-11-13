@@ -1,0 +1,8 @@
+= Signal Boxes
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| signalBox | mandatory | Equates to "signalställverk" in swedish. See the railML wiki for details.
+|===
+

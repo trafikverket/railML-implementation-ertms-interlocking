@@ -1,0 +1,138 @@
+= Common Conventions
+:page-layout: default
+:toc: macro
+:toc-title: Table of Contents
+:toclevels: 2
+
+This section defines general conventions that apply across all parts of the Trafikverket ERTMS Interlocking implementation of railML 3.2.  
+These rules ensure consistent data handling and interoperability between systems and stakeholders.
+
+== Identification Management
+
+Consistent and stable identification of objects is fundamental for traceability and synchronization across Trafikverket’s systems and external stakeholders.  
+Each object’s `@id` serves as a persistent reference that allows systems to align and update information reliably throughout the data lifecycle.
+
+=== Domain Prefix Convention
+
+All identifiers within the **Infrastructure (IS)** and **Interlocking (IL)** domains **MUST** include a domain prefix followed by a UUID.  
+This convention ensures that every identifier is globally unique, self-contained, and unambiguously associated with its originating domain.
+
+The prefixes are defined as follows:
+
+* `IS:<UUID>` – for infrastructure-layer objects  
+* `IL:<UUID>` – for interlocking-layer objects
+
+This prefixing rule applies to **all identifiers**, regardless of whether equivalent entities exist across domains.  
+Consistent prefixing simplifies validation, prevents cross-domain collisions, and supports merging or federating datasets from multiple systems.  
+The prefix is considered part of the identifier and **MUST NOT** be omitted, altered, or replaced.
+
+=== Trafikverket UUID Convention
+
+All identifiers **MUST**, where possible, use Trafikverket-assigned UUIDs (hereafter referred to as *Trv UUIDs*).  
+These UUIDs ensure uniqueness across all systems and datasets and enable consistent linking of objects between railML and Trafikverket’s master data systems.
+
+* A Trv UUID **MUST** follow the standard UUID v4 format:  
+  `[xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx]`
+
+* The UUID **MUST NOT** be altered or truncated when serialized into railML.  
+  It is treated as an opaque, globally unique value.
+
+If a Trv UUID is **not available**, a locally generated UUID **MAY** be used under the following conditions:
+
+* The identifier **MUST** still be globally unique within the dataset.  
+  UUID v4 is the **RECOMMENDED** format for locally generated identifiers.
+
+* The identifier **SHOULD** remain stable throughout the life of the dataset or project phase.  
+  Once assigned, it **MUST NOT** change between updates to the same dataset unless the entity is replaced.
+
+* The source system or project responsible for generating the local UUID **SHOULD** be documented, to enable later substitution with an official Trv UUID once available.
+
+Substitution with an official Trv UUID **IS PERMITTED ONCE**, as part of formal system alignment, and does not violate identifier stability rules.  
+If a locally generated UUID is used, it **MUST** still follow the same domain prefixing rule (e.g., `IS:<UUID>` or `IL:<UUID>`).
+
+=== Stability Rules
+
+Stable identification is essential for traceability and synchronization across systems and over time.
+
+* Entities representing parts of the **railway facility or interlocking** — such as signals, tracks, points, routes, or logical interlocking components — **MUST** have stable and persistent identifiers.  
+  Identifiers **MUST** remain unchanged across systems, datasets, and exchanges, unless the entity itself is explicitly deleted and reintroduced as a new instance.
+
+* Identifier substitution with an official Trv UUID (as defined above) is the **only permitted change** to an identifier during the lifetime of an entity.
+
+=== Container and Structural Entities
+
+Entities that serve only as **containers or structural schema elements** — such as organizational groupings, reference lists, or XML helper structures — **DO NOT** require persistent identifiers.  
+Their identifiers **MAY** change between exchanges, provided that referential integrity is maintained within the dataset.  
+Examples of such container entities include schema-level list types such as `tInfrastructure` or `tILSectionList`.
+
+=== Example
+
+[source,xml]
+----
+<SwitchIS id="IS:4f3c09b2-3d97-4db2-b7b4-6b6b6b3a45e8"/>
+<SwitchIL id="IL:4f3c09b2-3d97-4db2-b7b4-6b6b6b3a45e8"/>
+----
+
+In this example:
+
+* Both switches share the same underlying Trafikverket UUID (`4f3c09b2-3d97-4db2-b7b4-6b6b6b3a45e8`).
+* Each retains a unique identifier within its own namespace (`IS:` or `IL:`).
+* Cross-domain linkage is achieved by comparing the base UUIDs after removing the domain prefixes.
+
+Stable, prefix-based UUIDs form the foundation of cross-domain traceability within Trafikverket’s digital railway data ecosystem.
+
+
+
+== Name
+
+The `Name` element represents a human-readable designation of an object within the railML 3.2 schema.  
+It is intended to reflect the actual name used for the entity in engineering, operational, or documentation contexts — not to encode technical types or identifiers.
+
+=== Usage Rules
+
+* The value of `name` **MUST** represent the established or commonly used name of the entity.  
+  Examples include the actual signal name (“123”), route name (“123–125”), or switch name (“702”).
+
+* The name **MUST NOT** include the object type, prefixes such as “Signal” or “Switch,” or schema-related context (e.g. avoid “Signal A12” or “Switch 102”).  
+  The context is already defined by the surrounding XML element.
+
+* If the entity does **not** have a defined or conventional name, a name **MAY** be constructed using descriptive attributes or other relevant information,  
+  such as a functional description, position, or engineering reference.
+
+* The `language` attribute **MUST** be provided and set according to <<Language>>.  
+  English (`en`) is the **RECOMMENDED** language, Swedish (`sv`) **MAY** be used when English text is unavailable.
+
+* The optional `description` attribute **MAY** be used to add clarifying information on how the name is constructed.
+
+[cols="1, 1, 3", options="header"]
+|===
+| XPath | Requirement Level | Description
+| ...name |  | See the specific entity in the documentation.
+| ...name/@description | optional | Describes how the name is structured.
+| ...name/@language | mandatory | 
+| ...name/@name | mandatory | 
+|===
+
+=== Guidance
+
+Use the `Name` element to make datasets clear and understandable for engineers and operators.  
+It should express how an object is known or referred to in practice — not how it is modeled or typed in the schema.
+
+`Name` values are **not machine identifiers** and must not be used for linking or version control; those functions are handled by `@id`.
+
+== Language
+
+The **RECOMMENDED** language for all textual data is *English*.  
+If English data is unavailable, *Swedish* **MUST** be used.
+
+Language codes **MUST** be assigned according to recognized standards:
+
+* `en` – English  
+* `sv` – Swedish  
+
+These codes follow the conventions defined in:
+* https://www.railml.org/files/download/schemas/3.2/documentation/railml3.html#Link4CB[railML 3.2 Documentation – Language Specification]  
+* https://datatracker.ietf.org/doc/bcp47/[BCP 47 – IETF Language Tags]  
+* https://www.sis.se/produkter/terminologi-och-dokumentation/terminologi/ssiso63912005/[SS-ISO 639-1:2005 – Språkkoder]
+
+Consistent use of language tags ensures interoperability between systems and supports multilingual datasets.

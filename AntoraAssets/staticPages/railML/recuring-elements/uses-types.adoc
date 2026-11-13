@@ -1,0 +1,120 @@
+= Uses Types
+:page-layout: default
+:toc: macro
+:toclevels: 2
+
+The `usesTypes` element defines all type definitions used within railML.  
+It serves as a catalog of reusable definitions that describe common behaviours and configurations — such as signal aspects, route types, and detector types — which are referenced by other interlocking objects.
+
+Each type defined under `usesTypes` provides a standardized description that can be applied across multiple instances within the same interlocking configuration.
+
+== hasAspect
+
+The `hasAspect` collection defines the **signal aspects** available within the interlocking.  
+Each aspect represents a distinct visual or logical indication, such as “Stop”, “Proceed”, or “Caution”.  
+These are referenced by individual signal objects through their aspect configurations.
+
+[cols="1,1,1,1,1,2", options="header"]
+|===
+|SignalType(sv) |SignalType(en) |Signalbild(sv) |Signalbesked(sv) |railmlName |Comment
+
+|Huvudljussignal |Main Light Signal |rött |stopp |closed |
+|Huvudljussignal |Main Light Signal |tre gröna |kör 40, kort väg |limitedProceed |
+|Huvudljussignal |Main Light Signal |två gröna |kör 40, varsamhet |limitedProceed |
+|Huvudljussignal |Main Light Signal |en grön |kör 80 |proceed |
+|Huvudljussignal |Main Light Signal |en grön och grön blink |kör 80, vänta stopp |combinedProceed |
+|Huvudljussignal |Main Light Signal |en grön och två gröna blinkar |kör 80, vänta kör 40 |combinedProceed |
+|Huvudljussignal |Main Light Signal |en grön och vit blink |kör 80, vänta kör 80 |combinedProceed |
+
+|Huvuddvärgsignal |Main Shunting Signal |rött och vågrätt |stopp |closed |
+|Huvuddvärgsignal |Main Shunting Signal |rött och lodrätt |stopp |closed |
+|Huvuddvärgsignal |Main Shunting Signal |rött och snett vänster |stopp |closed |
+|Huvuddvärgsignal |Main Shunting Signal |rött och snett höger |stopp |closed |
+|Huvuddvärgsignal |Main Shunting Signal |grön blink till vänster |kör 40, varsamhet |limitedProceed |
+|Huvuddvärgsignal |Main Shunting Signal |grönt till vänster |kör 40 |limitedProceed |
+|Huvuddvärgsignal |Main Shunting Signal |grön blink till höger |kör 80, varsamhet |limitedProceed |
+|Huvuddvärgsignal |Main Shunting Signal |grönt till höger |kör 80 |proceed |
+
+|Fristående Försignal |Free Standing Distant Signal |grön blink |vänta stopp |caution |
+|Fristående Försignal |Free Standing Distant Signal |två gröna blinkar |vänta kör 40 |warning |
+|Fristående Försignal |Free Standing Distant Signal |vit blink |vänta kör 80 |warning |
+
+|Slutpunktsstopplykta |End Point Stop Light |rött |stopp |closed |
+
+|Repetersignal |Repeter signal |grön |kör i närmaste huvudsignal |informative |
+
+|Dvärgsignal |Shunting Signal |vågrätt |stopp |closed |During shunting movements (växling).
+|Dvärgsignal |Shunting Signal |lodrätt |rörelse tillåten, fri väg |limitedProceed |During shunting movements (växling).
+|Dvärgsignal |Shunting Signal |snett vänster |rörelse tillåten, hinder finns |limitedProceed |During shunting movements (växling).
+|Dvärgsignal |Shunting Signal |snett höger |rörelse tillåten, kontrollera växlar och hinderfrihet |limitedProceed |During shunting movements (växling).
+|Dvärgsignal |Shunting Signal |blinkande snett höger |villkorligt stopp |callOn |Signalbilder och signalbesked från växlingsdvärgsignal som skyddar rangerbromsar
+
+|Dvärgsignal |Shunting Signal |vågrätt |stopp |closed |VID TÅGFÄRD OCH SPÄRRFÄRD
+|Dvärgsignal |Shunting Signal |lodrätt |rörelse tillåten, fri väg |limitedProceed |VID TÅGFÄRD OCH SPÄRRFÄRD
+|Dvärgsignal |Shunting Signal |snett vänster | |limitedProceed |VID TÅGFÄRD OCH SPÄRRFÄRD. Signalen får passeras med driftläge ”på sikt” och i övrigt efter särskilt medgivande av tågklareraren enligt reglerna för respektive färd.
+|Dvärgsignal |Shunting Signal |snett höger | |limitedProceed |VID TÅGFÄRD OCH SPÄRRFÄRD
+
+|Skyddsstopplykta |Protection Stop Light |rött |stopp |closed |
+|Tågvägssignal |Train Route Signal |vitt |tågväg är reserverad |informative |
+|=== 
+
+
+
+== hasDetectorTypes
+
+The `hasDetectorTypes` collection defines the **types of train detection elements** used within the interlocking.
+
+[cols="1,1,3", options="header"]
+|===
+|railMLDetectorType(en) |DetectorType(sv) |Description
+|avalanche |Lavindetektor |Detects avalanches which may endanger railway traffic.
+|derailment |Urspårningsdetektor |Detects any derailed railway vehicle, often used near tunnels or bridges.detect unauthorized access.
+|landSlide |Ras- och skreddetektor |Detects landslides or rockfalls that may endanger railway traffic.
+|=== 
+
+
+
+== hasElementGroupType
+
+The `hasElementGroupType` collection defines logical groupings of interlocking elements that share common behaviour or operational characteristics.
+
+[cols="1,1", options="header"]
+|===
+|railMLElementGroupType(en) |ElementGroupType(sv)
+
+|automaticRouteSetting |Tågvägsautomat
+
+|emergencyStop |Nödstopp / Centralt stoppkommando
+|=== 
+
+
+
+== hasLevelCrossingType
+https://wiki3.railml.org/wiki/IL:hasLevelCrossingType[See the railML Wiki.]
+
+
+== hasRouteType
+[cols="1,1", options="header"]
+|===
+|genericRouteType |Svensk term
+
+|normal |Normal tågväg
+
+|auxilliary |Förenklad tågväg
+
+|shunting |Växlingsväg
+
+|withoutDependency |Rörelse inom ett temporärt lokalfrigivningsområde
+
+|block |Rörelse längs blocksträcka
+
+|other:MovementAlongTAMSection |Rörelse längs TAM-sträcka
+
+|callOn |Särskild tågväg
+|===
+
+
+
+== hasTVDesetStrategy
+
+The `hasTVDesetStrategy` is only used for axle counter sections, not used in this implementation.

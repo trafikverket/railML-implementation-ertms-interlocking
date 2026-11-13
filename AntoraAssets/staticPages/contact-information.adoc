@@ -1,0 +1,19 @@
+= Contact Information
+:page-layout: default
+:toc: macro
+:toc-title: Table of Contents
+:toclevels: 1
+
+This page lists the primary contact persons for questions related to the *ERTMS Interlocking railML 3.2 Implementation* at Trafikverket.  
+Contacts are organized by area of responsibility.
+
+== Dissemination and Coordination
+For questions related to documentation dissemination, agreements, coordination with other projects, or overall implementation governance, please contact:
+
+* **Mathias Hofrén**, UHjjm
+
+== Development and Technical Implementation
+For technical questions regarding schemas, configuration rules, data structures, or implementation details, please contact:
+
+* **Jonas Ekman**, IKTjplj
+* **Jim Kjellberg**, IKTjplj

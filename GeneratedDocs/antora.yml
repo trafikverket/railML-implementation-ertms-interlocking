@@ -1,0 +1,5 @@
+name: 'ertms-interlocking'
+title: 'ERTMS Interlocking'
+version: '1.0-rc'
+nav: 
+- modules/ROOT/nav.adoc

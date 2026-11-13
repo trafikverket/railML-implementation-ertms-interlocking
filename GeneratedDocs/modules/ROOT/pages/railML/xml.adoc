@@ -1,0 +1,13 @@
+= XML File and Header
+:page-layout: default
+:toc: macro
+:toclevels: 2
+:source-highlighter: highlight.js
+
+
+[source,xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+----
+
+The file **MUST** be encoded as UTF-8.

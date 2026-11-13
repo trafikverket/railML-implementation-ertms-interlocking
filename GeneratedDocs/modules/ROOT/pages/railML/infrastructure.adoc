@@ -1,0 +1,11 @@
+= Infrastructure
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| functionalInfrastructure | mandatory | 
+| geometry | mandatory | 
+| topology | mandatory | For this implementation, the topology MUST follow the principles of microscopic topology. The start and end of each net element MUST be defined only by the following objects: the front stock rail joint (FSK) of a switch and entry signals (“infartssignaler”).
+|===
+

@@ -1,0 +1,41 @@
+= Specific Infrastructure Managers
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| specificInfrastructureManager | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+|===
+
+== Specific Infrastructure Manager
+
+No specific comments on the usage of this element, see the railML wiki for details.
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| belongsToInfrastructureManager | mandatory | 
+| belongsToInfrastructureManager/@ref | mandatory | 
+| ownsSetsOfAssets | mandatory | 
+| ownsSetsOfAssets/@ref | mandatory | 
+| usesTypes | mandatory | xref:railML/recuring-elements/uses-types.adoc[See the UsesTypes page for more information.]
+| usesTypes/hasAspect | mandatory | 
+| usesTypes/hasAspect/@genericAspect | mandatory | 
+| usesTypes/hasAspect/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| usesTypes/hasDetectorTypes | mandatory | 
+| usesTypes/hasDetectorTypes/@detectorType | mandatory | 
+| usesTypes/hasDetectorTypes/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| usesTypes/hasElementGroupType | mandatory | 
+| usesTypes/hasElementGroupType/@elementGroupType | mandatory | 
+| usesTypes/hasElementGroupType/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| usesTypes/hasLevelCrossingType | mandatory | 
+| usesTypes/hasLevelCrossingType/@allowsLocalOperation | optional | 
+| usesTypes/hasLevelCrossingType/@controlType | mandatory | 
+| usesTypes/hasLevelCrossingType/@hasBarrier | optional | 
+| usesTypes/hasLevelCrossingType/@hasTrafficWarning | optional | 
+| usesTypes/hasLevelCrossingType/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| usesTypes/hasRouteType | mandatory | 
+| usesTypes/hasRouteType/@genericRouteType | mandatory | 
+| usesTypes/hasRouteType/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+

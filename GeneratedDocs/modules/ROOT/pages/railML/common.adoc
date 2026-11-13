@@ -1,0 +1,13 @@
+= Common
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| electrificationSystems | optional | The usage of this element depends on the specific needs in relation to a data exchange.
+| organizationalUnits | mandatory | Represents an organization with one or more resposibilities.
+| positioning | mandatory | 
+| projects | optional | If it is possible to reference a project it is REQUIRED to do so. See railML Wiki for details.
+| speedProfiles | mandatory | 
+|===
+

@@ -1,0 +1,26 @@
+= Radio Block Centres
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| radioBlockCentre | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| radioBlockCentre/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| radioBlockCentre/@model | optional | 
+| radioBlockCentre/@softwareVersion | mandatory | 
+| radioBlockCentre/belongsToInfrastructureManager | mandatory | 
+| radioBlockCentre/belongsToInfrastructureManager/@ref | mandatory | 
+| radioBlockCentre/connectedSignalBox | mandatory | 
+| radioBlockCentre/connectedSignalBox/@ref | mandatory | 
+| radioBlockCentre/containedTrackAssets | mandatory | 
+| radioBlockCentre/containedTrackAssets/@ref | mandatory | 
+| radioBlockCentre/etcsGeneralData | mandatory | 
+| radioBlockCentre/etcsGeneralData/@mVersion | mandatory | 
+| radioBlockCentre/etcsGeneralData/@nidCountry | mandatory | 
+| radioBlockCentre/etcsGeneralData/@nidRadio | mandatory | 
+| radioBlockCentre/etcsGeneralData/@nidRadioNetwork | mandatory | 
+| radioBlockCentre/etcsGeneralData/@nidRBC | mandatory | 
+| radioBlockCentre/hasName | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| radioBlockCentre/isLimitedByRadioBlockCentreBorder | mandatory | 
+| radioBlockCentre/isLimitedByRadioBlockCentreBorder/@ref | mandatory | 
+|===
+

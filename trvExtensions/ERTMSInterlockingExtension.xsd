@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema id="ERTMSInterlockingExtension"
+           targetNamespace="https://www.trafikverket.se/RailML/Extensions/ERTMSInterlocking"
+           elementFormDefault="qualified"
+           xmlns:trv="https://www.trafikverket.se/RailML/Extensions/ERTMSInterlocking"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:rail="https://www.railml.org/schemas/3.2"
+           attributeFormDefault="qualified"
+           version="1.0-rc">
+
+  <xs:import id="railml3" namespace="https://www.railml.org/schemas/3.2" schemaLocation="railml3.xsd"/>
+  <xs:import id="railml3Inra" namespace="https://www.railml.org/schemas/3.2" schemaLocation="infrastructure3.xsd"/>
+
+  <!-- START switchIL extension -->
+  <xs:simpleType name="switchMotorType">
+    <xs:annotation>
+      <xs:documentation>
+        Defines available switch motor models used in Trv facilities.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="JEA">
+        <xs:annotation>
+          <xs:documentation>JEA switch motor model.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="EasySwitch">
+        <xs:annotation>
+          <xs:documentation>EasySwitch switch motor model.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ExtendedSwitchIL">
+    <xs:annotation>
+      <xs:documentation>
+        Extends rail:SwitchIL with Trafikverket-specific attributes for ERTMS interlocking.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="rail:SwitchIL">
+        <xs:attribute name="switchMotor" type="trv:switchMotorType" use="optional"/>
+        <xs:attribute name="bladeMotorSide" type="rail:tSide" use="optional"/>
+        <xs:attribute name="frogMotorSide" type="rail:tSide" use="optional"/>
+        <xs:attribute name="hasBladePositionDetector" type="xs:boolean" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--EOF  switchIL extension-->
+
+  <!-- START SignalBox -->
+
+  <xs:complexType name="connectedToInterfaceTerminal">
+    <xs:annotation>
+      <xs:documentation>
+        References the interface terminal (GSP-plint) to which a track asset or component is connected.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="ref" type="rail:tID" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="interfaceTerminal">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a single terminal strip (GSP-plint) within an interface rack.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="rail:Name" minOccurs="1" maxOccurs="1"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="rail:tID" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="interfaceRackRow">
+    <xs:annotation>
+      <xs:documentation>
+        Represents a row within an interface rack, containing multiple interface terminals (GSP-plintar).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="rail:Name" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="interfaceTerminal" type="trv:interfaceTerminal" minOccurs="1" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="rail:tID" use="required"/>
+  </xs:complexType>
+
+  <!-- interfaceRackType -->
+  <xs:complexType name="interfaceRack">
+    <xs:annotation>
+      <xs:documentation>
+        Defines an interface rack that groups multiple rack rows containing interface terminals (GSP-stativ).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" type="rail:Name" minOccurs="1" maxOccurs="1"></xs:element>
+      <xs:element name="interfaceRow" type="trv:interfaceRackRow" minOccurs="1" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="rail:tID" use="required"/>
+    <!-- xxxx -->
+  </xs:complexType>
+
+  <xs:complexType name="ExtendedTrackAssetConnectedToIL">
+    <xs:annotation>
+      <xs:documentation>
+        Extends rail:TrackAssetConnectedToIL with a reference to an interface terminal (GSP-plint).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="rail:TrackAssetConnectedToIL">
+        <xs:sequence>
+          <xs:element name="connectedToInterfaceTerminal" type="trv:connectedToInterfaceTerminal" minOccurs="0" maxOccurs="1"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ExtendedSignalBox">
+    <xs:annotation>
+      <xs:documentation>
+        Extends rail:SignalBox with interface rack information for interface with trackside equipment.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="rail:SignalBox">
+        <xs:sequence>
+          <xs:element name="interfaceRack" type="trv:interfaceRack" minOccurs="1" maxOccurs="unbounded"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- EOF SignalBox -->
+
+</xs:schema>

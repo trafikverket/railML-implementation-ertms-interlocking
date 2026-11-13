@@ -1,0 +1,146 @@
+= Signal Box
+
+Equates to "signalställverk" in swedish. See the railML wiki for details.
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| connectedToRadioBlockCentre | mandatory | 
+| controlsCombinedRoute | mandatory | 
+| controlsRoute | mandatory | 
+| controlsSystemAsset | mandatory | 
+| controlsTrackAsset | mandatory | 
+| hasConfiguration | mandatory | 
+| hasConflictingRoutes | mandatory | 
+| hasPermissionZone | optional | 
+| implementsElementGroup | mandatory | Is used for automatic train routing, and emergency stop element groups.
+| implementsSignalplan | mandatory | 
+| trv:interfaceRack | mandatory | Represents an equipment rack within the signal box used for interface components.
+|===
+
+== Connected To Radio Block Centre
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @ref | mandatory | 
+|===
+
+== Controls Combined Route
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @ref | mandatory | 
+|===
+
+== Controls Route
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @ref | mandatory | 
+|===
+
+== Controls System Asset
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @extentOfControl | mandatory | 
+| connectedSystemAsset | mandatory | These are objects that uses of the complex type rail3:SystemAsset in the railML schema. In this version that is IL:PowerSupplyIL
+| connectedSystemAsset/@ref | mandatory | 
+|===
+
+== Controls Track Asset
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @extentOfControl | mandatory | 
+| connectedTrackAsset | mandatory | These are objects that uses of the complex type rail3:TrackAsset. In this version that is: ElementGroup, EndOfTrack, Interface, LevelCrossingIL, LogicalDevice, MovableElement, PermissionZone, RestrictedArea, SignalIL, TrackIL, TunnelGateIL, and TvdSection.
+| connectedTrackAsset/@ref | mandatory | 
+| trv:connectedToInterfaceTerminal | mandatory | Defines a connection from a controlled track asset to a specific interface terminal (GSP-Plint).
+| trv:connectedToInterfaceTerminal/@trv:ref | mandatory | Reference identifier linking to the interface terminal (GSP-Plint) the track asset is connected to.
+|===
+
+== Has Configuration
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @signalSystem | optional | 
+| @technologyType | mandatory | 
+|===
+
+== Has Conflicting Routes
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @ref | mandatory | 
+|===
+
+== Has Permission Zone
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @ref | mandatory | 
+|===
+
+== Implements Element Group
+
+Is used for automatic train routing, and emergency stop element groups.
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| assetName | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| groupType | mandatory | 
+| groupType/@ref | mandatory | Reference to instance of IL:hasElementGroupType. xref:railML/recuring-elements/uses-types.adoc[See the UsesTypes page for more information.]
+| refersToMember | mandatory | 
+| refersToMember/@ref | mandatory | 
+|===
+
+== Implements Signalplan
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| aspectRelation | mandatory | 
+| aspectRelation/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| aspectRelation/@passingSpeed | mandatory | 
+| aspectRelation/appliesToRoute | mandatory | 
+| aspectRelation/appliesToRoute/@ref | mandatory | 
+| aspectRelation/masterAspect | optional | 
+| aspectRelation/masterAspect/refersToSignal | mandatory | 
+| aspectRelation/masterAspect/refersToSignal/@ref | mandatory | 
+| aspectRelation/masterAspect/showsAspect | mandatory | 
+| aspectRelation/masterAspect/showsAspect/@ref | mandatory | Reference to instance of IL:hasAspect.
+| aspectRelation/slaveAspect | mandatory | 
+| aspectRelation/slaveAspect/refersToSignal | mandatory | 
+| aspectRelation/slaveAspect/refersToSignal/@ref | mandatory | 
+| aspectRelation/slaveAspect/showsAspect | mandatory | 
+| aspectRelation/slaveAspect/showsAspect/@ref | mandatory | Reference to instance of IL:hasAspect.
+|===
+
+== Trv:interface Rack
+
+Represents an equipment rack within the signal box used for interface components.
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @trv:id | mandatory | Unique identifier for the interface rack (GSP-stativ).
+| trv:interfaceRow | mandatory | Represents a row of interface terminals (GSP-Plintar) within the rack.
+| trv:interfaceRow/@trv:id | mandatory | Unique identifier for the interface row.
+| trv:interfaceRow/trv:interfaceTerminal | mandatory | Represents an individual interface terminal (GSP-Plint) point.
+| trv:interfaceRow/trv:interfaceTerminal/@trv:id | mandatory | Unique identifier for the interface terminal (GSP-Plint).
+| trv:interfaceRow/trv:interfaceTerminal/trv:name | mandatory | Descriptive name of the interface terminal (GSP-Plint).
+| trv:interfaceRow/trv:name | mandatory | Descriptive name of the interface row.
+| trv:name | mandatory | Descriptive name of the interface rack (GSP-Stativ).
+|===
+

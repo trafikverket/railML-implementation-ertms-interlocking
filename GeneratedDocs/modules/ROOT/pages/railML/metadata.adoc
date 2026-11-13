@@ -1,0 +1,41 @@
+= Metadata
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| dc:contributor | optional | 
+| dc:coverage | mandatory | The geographic area included in the file.
+| dc:coverage/@xml:lang | optional | `xml:lang` SHOULD be assigned.
+| dc:creator | mandatory | MUST specify the entity that created the RailML file. +
+Exports created by Trafikverket MUST be set to the value specified in the sample above.
+| dc:creator/@xml:lang | mandatory | 
+| dc:date | mandatory | MUST specify the datetime when the file was created. +
+The datetime MUST be formatted according to `[dateX][“T”][timeX][shiftX]`, e.g `2024-04-12T23:20:30+02:00`, specified in https://www.sis.se/produkter/terminologi-och-dokumentation/informationsvetenskap-publicering/dokument-for-administration-handel-och-industri/ss-iso-8601-12022/[SS-ISO 8601-1:2022].
+| dc:date/@xml:lang | optional | 
+| dc:description | optional | A description of the related project, if applicable.
+| dc:description/@xml:lang | mandatory | 
+| dc:format | mandatory | railML version used. +
+MUST be set to 3.2.
+| dc:format/@xml:lang | optional | 
+| dc:identifier | mandatory | A unique GUID needs to be assigned to each export.
+| dc:identifier/@xml:lang | optional | 
+| dc:language | optional | Since english is the prefered language when exchanging data this SHOULD be set to `en`.
+| dc:rights | mandatory | MUST be specified to clearly inform the user of the rights and obligations associated with the data. +
+If the data is deemed to be `1 Ej Känsligt` (Non-Sensitive) according to Trafikverkets security policy the Creative Commons https://creativecommons.org/licenses/by/4.0/[CC BY License] SHOULD be assigned using `https://creativecommons.org/licenses/by/4.0/`. +
+Otherwise one of the following values SHOULD be used: +
+`2 Intern` (Internal) +
+`3 Känslig` (Sensitive) +
+`4 Mycket känslig` (Highly Sensitive) +
+`5.1 Kvalificerat Hemlig` (Qualified Secret) +
+`5.2 Hemlig` (Secret) +
+`5.3 Konfidentiell` (Confidential) +
+`5.4 Begränsat Hemlig` (Limited Secret)
+| dc:source | mandatory | MUST specify the datasource used to create the RailML file.
+| dc:subject | mandatory | Specifies the Use-Case for this implementation and what railML Use-Cases are used as a base. +
+MUST be set to `ERTMS Interlocking, SCTP, IMED, ETCS-A, ETCS-B`.
+| dc:title | optional | Title of the export. +
+SHOULD be the name of the related project (if applicable), or the geographic area included in the file.
+| dc:title/@xml:lang | optional | 
+| dc:type | optional | SHOULD be set to the level of completion (färdigställandegrad) the data fulfils.
+|===
+

@@ -1,0 +1,38 @@
+= Terminology
+:page-layout: default
+:toc: macro
+:toclevels: 1
+
+This document defines key terminology used throughout the railML 3.2 ERTMS Interlocking implementation.  
+These terms describe how elements and attributes are classified and how requirement keywords are interpreted.
+
+== Requirement Levels
+
+Each element or attribute in the specification is assigned a requirement level:
+
+* **Not Applicable** – The element or attribute is not relevant for this use-case and shall not be used.  
+* **Optional** – The element or attribute may be included if relevant.  
+  In some contexts, optional properties become required to ensure complete data representation.  
+  Such conditions are explicitly stated in this documentation or referenced from the railML 3 Wiki.  
+* **Mandatory** – The element or attribute must be provided if the corresponding feature exists in the facility or interlocking.
+
+Requirement levels are consistently indicated in implementation tables and schema documentation.
+
+== RFC 2119 Keywords
+
+The following keywords are used in accordance with *RFC 2119* to indicate levels of obligation or recommendation:
+
+* **MUST**, **MUST NOT**  
+* **REQUIRED**  
+* **SHALL**, **SHALL NOT**  
+* **SHOULD**, **SHOULD NOT**  
+* **RECOMMENDED**  
+* **MAY**
+* **OPTIONAL**
+
+These keywords define how strictly a rule must be applied within this implementation.
+
+== Further Reading
+
+For the original definitions and detailed usage guidance, see the  
+https://www.ietf.org/rfc/rfc2119.txt[RFC 2119 – Key words for use in RFCs to Indicate Requirement Levels].

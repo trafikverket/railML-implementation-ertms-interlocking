@@ -1,0 +1,14 @@
+= Electrification Systems
+
+The usage of this element depends on the specific needs in relation to a data exchange.
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| electrificationSystem | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| electrificationSystem/@frequency | mandatory | 
+| electrificationSystem/@id | mandatory | Use GUID if availible in source, otherwise use `<CURRENT_TYPE><VOLTAGE_kV>-<FREQ_Hz>`, e.g. `AC15-16`.
+xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| electrificationSystem/@voltage | mandatory | 
+|===
+

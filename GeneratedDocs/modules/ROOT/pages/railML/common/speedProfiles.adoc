@@ -1,0 +1,22 @@
+= Speed Profiles
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| speedProfile | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| speedProfile/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| speedProfile/@isBasicSpeedProfile | mandatory | 
+| speedProfile/@maxCantDeficiency | optional | 
+| speedProfile/@mVersion | mandatory | 
+| speedProfile/braking | optional | 
+| speedProfile/braking/@airBrakeApplicationPosition | mandatory | 
+| speedProfile/load | optional | 
+| speedProfile/load/@exceedsAxleLoad | mandatory | 
+| speedProfile/name | mandatory | Line category name or maximum permitted speed (STH) for rail cant deficiency.
+xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| speedProfile/trainType | mandatory | 
+| speedProfile/trainType/@type | optional | 
+| speedProfile/trainType/etcsSpeedProfile | mandatory | 
+| speedProfile/trainType/etcsSpeedProfile/@etcsTrainCategoryNumber | mandatory | 
+|===
+

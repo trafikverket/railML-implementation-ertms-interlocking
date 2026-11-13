@@ -1,0 +1,8 @@
+= Assets For Interlockings
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| assetsForInterlocking | mandatory | 
+|===
+

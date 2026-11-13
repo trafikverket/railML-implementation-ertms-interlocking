@@ -1,0 +1,15 @@
+= Geometry
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| gradientCurves | mandatory | 
+| gradientCurves/gradientCurve | mandatory | Represents "vertikalkurva", or "lutning" in a Trafikverket context, see railML wiki for details.
+| gradientCurves/gradientCurve/@curveType | mandatory | 
+| gradientCurves/gradientCurve/@gradient | mandatory | 
+| gradientCurves/gradientCurve/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| gradientCurves/gradientCurve/@length | mandatory | 
+| gradientCurves/gradientCurve/linearLocation | mandatory | xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| gradientCurves/gradientCurve/name | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+

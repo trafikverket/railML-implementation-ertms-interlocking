@@ -1,0 +1,41 @@
+= Projects
+
+If it is possible to reference a project it is REQUIRED to do so. See railML Wiki for details.
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| project | mandatory | 
+| project/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| project/alternative | optional | 
+| project/alternative/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| project/alternative/name | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| project/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| project/phase | optional | Equates to `sytemhandling`, `etapp`, `Ä-not`, or similar concepts within Trafikverket that can be seen as phases in the lifecycle of a project.
+| project/phase/@endDate | optional | 
+| project/phase/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| project/phase/@startDate | optional | 
+| project/phase/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| project/projectArea | optional | 
+| project/projectArea/@ref | mandatory | 
+| project/revision | optional | 
+| project/revision/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| project/revision/@initialProjectRef | optional | 
+| project/revision/approvedBy | optional | 
+| project/revision/approvedBy/@date | optional | 
+| project/revision/approvedBy/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| project/revision/approvedBy/name | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| project/revision/checkedBy | optional | 
+| project/revision/checkedBy/@date | optional | 
+| project/revision/checkedBy/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| project/revision/checkedBy/name | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| project/revision/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| project/revision/objectsRevised | optional | 
+| project/revision/objectsRevised/objectRevised | mandatory | 
+| project/revision/objectsRevised/objectRevised/@ref | mandatory | 
+| project/revision/revisedBy | optional | 
+| project/revision/revisedBy/@date | optional | 
+| project/revision/revisedBy/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| project/revision/revisedBy/name | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+

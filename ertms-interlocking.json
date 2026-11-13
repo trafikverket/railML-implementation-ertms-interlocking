@@ -1,0 +1,28 @@
+{
+  "AntoraRootDirPath": "GeneratedDocs/modules/ROOT",
+  "AntoraPageDirRelPath": "pages",
+  "AntoraAssetsDirRelPath": "AntoraAssets",
+  "StaticPagesSourceDirRelPath": "StaticPages",
+  "NavigationTemplateFileRelPath": "Templates/nav.adoc",
+  "NavigationInsertAtLevel": 2,
+  "CsvSourceFileRelPath": "trv-ertms-interlocking.csv",
+  "ExtensionSourceFileRelPath": "trvExtensions/ERTMSInterlockingExtension.xsd",
+
+  "StandardizedReferences": {
+    "ExcludeTargetsFromRecursion": true,
+    "StandardizedReferenceRules": [
+      {
+        "Target": ["@id", "@elementNumber", "assetName", "hasName", "name"],
+        "InsertAsciiDocLinkInDescription": "xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]"
+      },
+      {
+        "Target": ["areaLocation", "linearLocation", "spotLocation"],
+        "InsertAsciiDocLinkInDescription": "xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]"
+      },
+      {
+        "Target": ["hasCommand", "hasIndication"],
+        "InsertAsciiDocLinkInDescription": "WIP"
+      }
+    ]
+  }
+}

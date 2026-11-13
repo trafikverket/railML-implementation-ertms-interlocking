@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<railML
+  xmlns="https://www.railml.org/schemas/3.2"
+  xmlns:rail="https://www.railml.org/schemas/3.2"
+  xmlns:trv="https://www.trafikverket.se/RailML/Extensions/ERTMSInterlocking"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    https://www.railml.org/schemas/3.2 https://www.railml.org/schemas/3.2/railml3.xsd
+    https://www.trafikverket.se/RailML/Extensions/ERTMSInterlocking ERTMSInterlockingExtension.xsd">
+
+  <infrastructure>
+    <functionalInfrastructure>
+      <switchesIS>
+        <switchIS id="da0599bf-9aeb-41e8-889c-947ff9b5c510" continueCourse="left" branchCourse="right"/>
+      </switchesIS>
+    </functionalInfrastructure>
+  </infrastructure>
+  <interlocking>
+    <assetsForInterlockings>
+      <assetsForInterlocking id="939130e1-f5b9-4bdf-9a6a-66b4c5cb7fb1">
+        <switchesIL>
+          <switchIL xsi:type="trv:ExtendedSwitchIL" id="205e5a55-0746-4b40-846f-c2ac8642630b" numberOfBladeSwitchActuators="2" numberOfFrogSwitchActuators="2" trv:switchMotor="JEA" trv:bladeMotorSide="left" trv:frogMotorSide="right" trv:hasBladePositionDetector="true">
+            <refersTo ref="da0599bf-9aeb-41e8-889c-947ff9b5c510"/>
+          </switchIL>
+        </switchesIL>
+      </assetsForInterlocking>
+    </assetsForInterlockings>
+    <signalBoxes>
+      <signalBox xsi:type="trv:ExtendedSignalBox" id="6d61b227-1b8b-4e12-a0ce-1a9f52c0c2bc">
+        <hasName name="Teknikhus_4441" description="Ställverk" language="se"/>
+        <controlsTrackAsset xsi:type="trv:ExtendedTrackAssetConnectedToIL">
+          <connectedTrackAsset ref="205e5a55-0746-4b40-846f-c2ac8642630b"/>
+          <trv:connectedToInterfaceTerminal trv:ref="418fb489-dbf4-48ab-9dfe-f7ec9ab9c79f"/>
+        </controlsTrackAsset>
+        <trv:interfaceRack trv:id="e253ff13-9818-4513-aa00-9fd5ce9a8cf2">
+          <trv:name name="GSP1" description="Gränssnittsplåt" language="se"/>
+          <trv:interfaceRow trv:id="9366c30f-39ce-463b-96c5-95214eeb0893">
+            <trv:name name="+H21" description="Plintrad" language="se"/>
+            <trv:interfaceTerminal trv:id="418fb489-dbf4-48ab-9dfe-f7ec9ab9c79f">
+              <trv:name name="+11" description="Plint" language="se"/>
+            </trv:interfaceTerminal>
+          </trv:interfaceRow>
+        </trv:interfaceRack>
+      </signalBox>
+    </signalBoxes>
+  </interlocking>
+</railML>

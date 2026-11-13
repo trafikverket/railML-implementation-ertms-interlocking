@@ -1,0 +1,90 @@
+= Topology
+
+For this implementation, the topology MUST follow the principles of microscopic topology. The start and end of each net element MUST be defined only by the following objects: the front stock rail joint (FSK) of a switch and entry signals (“infartssignaler”).
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| netElements | mandatory | 
+| netRelations | mandatory | All net relations and their navigability MUST be specified. See railML Wiki for details.
+| networks | mandatory | 
+|===
+
+== Net Elements
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| netElement | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| netElement/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| netElement/@length | mandatory | 
+| netElement/associatedPositioningSystem | mandatory | 
+| netElement/associatedPositioningSystem/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| netElement/associatedPositioningSystem/@positioningSystemRef | mandatory | 
+| netElement/associatedPositioningSystem/intrinsicCoordinate | mandatory | 
+| netElement/associatedPositioningSystem/intrinsicCoordinate/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| netElement/associatedPositioningSystem/intrinsicCoordinate/@intrinsicCoord | mandatory | 
+| netElement/associatedPositioningSystem/intrinsicCoordinate/geometricCoordinate | optional | The sampling density of geometric coordinates SHOULD reflect the curvature of the underlying alignment and MUST be sufficient for consumers to construct a smooth polyline when needed.
+| netElement/associatedPositioningSystem/intrinsicCoordinate/geometricCoordinate/@positioningSystemRef | mandatory | 
+| netElement/associatedPositioningSystem/intrinsicCoordinate/geometricCoordinate/@x | mandatory | 
+| netElement/associatedPositioningSystem/intrinsicCoordinate/geometricCoordinate/@y | mandatory | 
+| netElement/associatedPositioningSystem/intrinsicCoordinate/geometricCoordinate/@z | optional | 
+| netElement/associatedPositioningSystem/intrinsicCoordinate/linearCoordinate | mandatory | Provide linear coordinates for the start and end of each net element. Any change in mileage (kilometric position; 1,000 m) along the element must be specified with its value and its intrinsic coordinate. All measurements are metric. Kilometric gaps are computed from the intrinsic coordinate and the net element length.
+| netElement/associatedPositioningSystem/intrinsicCoordinate/linearCoordinate/@lateralDistance | optional | 
+| netElement/associatedPositioningSystem/intrinsicCoordinate/linearCoordinate/@lateralSide | optional | 
+| netElement/associatedPositioningSystem/intrinsicCoordinate/linearCoordinate/@measure | mandatory | 
+| netElement/associatedPositioningSystem/intrinsicCoordinate/linearCoordinate/@positioningSystemRef | mandatory | 
+| netElement/associatedPositioningSystem/intrinsicCoordinate/linearCoordinate/@verticalDistance | optional | 
+| netElement/associatedPositioningSystem/intrinsicCoordinate/linearCoordinate/@verticalSide | optional | 
+| netElement/elementCollectionOrdered | optional | 
+| netElement/elementCollectionOrdered/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| netElement/elementCollectionOrdered/@sequence | mandatory | 
+| netElement/elementCollectionOrdered/elementPart | mandatory | 
+| netElement/elementCollectionOrdered/elementPart/@ref | mandatory | 
+| netElement/elementCollectionUnordered | optional | 
+| netElement/elementCollectionUnordered/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| netElement/elementCollectionUnordered/elementPart | mandatory | 
+| netElement/elementCollectionUnordered/elementPart/@ref | mandatory | 
+| netElement/isValid | optional | 
+| netElement/isValid/@from | optional | 
+| netElement/isValid/@to | optional | 
+| netElement/name | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+
+== Net Relations
+
+All net relations and their navigability MUST be specified. See railML Wiki for details.
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| netRelation | mandatory | 
+| netRelation/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| netRelation/@navigability | mandatory | 
+| netRelation/@positionOnA | mandatory | 
+| netRelation/@positionOnB | mandatory | 
+| netRelation/elementA | mandatory | 
+| netRelation/elementA/@ref | mandatory | 
+| netRelation/elementB | mandatory | 
+| netRelation/elementB/@ref | mandatory | 
+| netRelation/isValid | optional | 
+| netRelation/isValid/@from | optional | 
+| netRelation/isValid/@to | optional | 
+| netRelation/name | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+
+== Networks
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| network | mandatory | 
+| network/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| network/level | mandatory | 
+| network/level/@descriptionLevel | mandatory | For this implementation, the topology MUST follow the principles of microscopic topology. Set value to `Micro`.
+| network/level/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| network/level/networkResource | mandatory | 
+| network/level/networkResource/@ref | mandatory | Reference all the topology network resources (netElement, netRelation) that belong to this topology level.
+| network/name | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+

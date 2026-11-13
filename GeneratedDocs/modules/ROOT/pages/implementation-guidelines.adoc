@@ -1,0 +1,35 @@
+= Implementation Guidelines
+:page-layout: default
+:toc: macro
+:toc-title: Table of Contents
+:toclevels: 1
+
+This page provides guidance for applying Trafikverket’s *ERTMS Interlocking Implementation Specification* within the railML 3.2 framework.  
+It highlights the specific adaptations, dependencies, and reference materials that ensure consistent and correct use of the specification.
+
+== Adherence to railML Use-Cases
+
+This implementation is aligned with the following railML Use-Cases, which serve as reference material for structure and data semantics.  
+Some of these use-cases are based on railML 3.1 or are still under development at the time of publication.  
+They should therefore be regarded as informative rather than strictly normative references.
+
+* https://wiki3.railml.org/wiki/UC:IS:Schematic_Track_Plan[SCTP – Schematic Track Plan, Version 1.0, 19.02.2019]  
+* https://wiki3.railml.org/wiki/UC:IL:InterlockingEngineering[IMED – Interlocking Module Engineering Data, Version 1.0, 17.02.2019]  
+* https://wiki3.railml.org/wiki/UC:IS:ETCS_track_net[ETCS-A – Input for Detailed Design of ETCS Trackside, Draft based on railML 3.2]  
+* https://wiki3.railml.org/wiki/UC:IS:ETCS_track_net[ETCS-B – Output of Detailed Design of ETCS Trackside, Draft based on railML 3.2]
+
+== Using this Specification
+
+This specification **MUST** be used together with the following resources:
+
+* https://www.railml.org/files/download/schemas/3.2/documentation/railml3.html[railML 3.2 Documentation]  
+* https://wiki3.railml.org/wiki/Main_Page[railML 3 Wiki]  
+* The railML Use-Cases listed above.
+
+For Trafikverket’s implementation, the guidelines apply to both *as-is facility representations* and *configured interlocking data* within the ERTMS context.  
+Following these principles ensures alignment with railML standards while maintaining national adaptations specific to Trafikverket’s data structures.
+
+== Summary
+
+These implementation guidelines describe how to correctly apply Trafikverket’s adaptation of railML 3.2 for ERTMS Interlocking.  
+By following the references and conventions outlined here, implementers can achieve consistent data models, improved interoperability, and traceable information exchange across tools and projects.

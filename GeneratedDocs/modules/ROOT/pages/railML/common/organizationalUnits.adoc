@@ -1,0 +1,22 @@
+= Organizational Units
+
+Represents an organization with one or more resposibilities.
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| organizationalUnit | mandatory | Atleast one type must be set for the organization using the `is<Type>` elements. See railML Wiki for details.
+| organizationalUnit/@code | optional | Assign UIC Company code if possible. `0074` for Trafikverket.
+| organizationalUnit/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| organizationalUnit/isConcessionaire | optional | 
+| organizationalUnit/isContractor | optional | 
+| organizationalUnit/isCustomer | optional | 
+| organizationalUnit/isInfrastructureManager | optional | 
+| organizationalUnit/isOperationalUndertaking | optional | 
+| organizationalUnit/isRailwayUndertaking | optional | 
+| organizationalUnit/isVehicleManufacturer | optional | 
+| organizationalUnit/isVehicleOperator | optional | 
+| organizationalUnit/isVehicleOwner | optional | 
+| organizationalUnit/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+

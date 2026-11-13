@@ -1,0 +1,614 @@
+= Assets For Interlocking
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| @id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| combinedRoutes | optional | 
+| conflictingRoutes | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| dangerPoints | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| derailersIL | mandatory | 
+| endOfTracks | mandatory | 
+| genericDetectors | mandatory | 
+| keyLocksIL | mandatory | 
+| keys | optional | 
+| levelCrossingsIL | mandatory | 
+| localOperationAreas | mandatory | 
+| movableBridges | mandatory | 
+| overlaps | mandatory | 
+| routeRelations | mandatory | 
+| routeReleaseGroupsRear | optional | 
+| routes | mandatory | 
+| shuntingZones | mandatory | 
+| signalsIL | mandatory | 
+| switchesIL | mandatory | 
+| tracksIL | mandatory | 
+| tunnelGatesIL | optional | 
+| tvdSections | mandatory | 
+|===
+
+== Combined Routes
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| combinedRoute | mandatory | Sometimes referred to as "sammanhållen order för rörelseväg" in swedish. See railML Wiki for details.
+| combinedRoute/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| combinedRoute/comboEntry | mandatory | 
+| combinedRoute/comboEntry/@ref | mandatory | ID reference to the IL:routeEntry of the first route.
+| combinedRoute/comboExit | mandatory | 
+| combinedRoute/comboExit/@ref | mandatory | ID reference to the IL:routeExit of the last route.
+| combinedRoute/containsRoute | mandatory | 
+| combinedRoute/containsRoute/@ref | mandatory | 
+|===
+
+== Conflicting Routes
+
+No specific comments on the usage of this element, see the railML wiki for details.
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| conflictingRoute | mandatory | Equates to "fientlig rörelseväg" in swedish. See railML Wiki for details.
+| conflictingRoute/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| conflictingRoute/conflictsWithRoute | mandatory | 
+| conflictingRoute/conflictsWithRoute/@ref | mandatory | 
+| conflictingRoute/refersToRoute | mandatory | 
+| conflictingRoute/refersToRoute/@ref | mandatory | 
+|===
+
+== Danger Points
+
+No specific comments on the usage of this element, see the railML wiki for details.
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| dangerPoint | mandatory | Sometimes refered to as "farlig punkt" in swedish. See railML Wiki for details.
+| dangerPoint/@distance | mandatory | 
+| dangerPoint/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+
+== Derailers IL
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| derailerIL | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| derailerIL/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| derailerIL/@isKeyLocked | optional | Example of an electronic lock in the Swedish railway is the "JEK" device.
+| derailerIL/@localOperated | mandatory | 
+| derailerIL/@maxThrowTime | mandatory | 
+| derailerIL/@numberOfBladeSwitchActuators | mandatory | For derailers this attribute is used to define numer of actuators. Set to `1` if the derailer has an actuator, otherwise `0`.
+| derailerIL/@preferredPosition | optional | This property MUST be set if the `@returnsToPreferredPosition` attribute is set to `TRUE`.
+| derailerIL/@returnsToPreferredPosition | mandatory | 
+| derailerIL/@typicalThrowTime | optional | 
+| derailerIL/assetName | mandatory | SHOULD follow `<abbreviated station name>-<derailer designation>`, e.g. `Bdn-123`.
+xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| derailerIL/hasTvdSection | mandatory | Reference to underlying track circuit, known as "blockeringsspårledning" in swedish terms.
+| derailerIL/hasTvdSection/@ref | mandatory | 
+| derailerIL/refersTo | mandatory | 
+| derailerIL/refersTo/@ref | mandatory | ID reference to corresponding IS:DerailerIS.
+|===
+
+== End Of Tracks
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| endOfTrack | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| endOfTrack/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| endOfTrack/@realisation | mandatory | 
+| endOfTrack/refersTo | mandatory | 
+| endOfTrack/refersTo/@ref | mandatory | 
+|===
+
+== Generic Detectors
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| genericDetector | mandatory | Used for derailment detectors "Urspårningsslinga", rock- and landslides, as well as avalanche detectors "Ras och skredvarningssystem". See railML Wiki for details.
+| genericDetector/@affectsRouteSignalling | mandatory | 
+| genericDetector/@allowsPermanentOverride | optional | 
+| genericDetector/@allowsSingleOverride | optional | 
+| genericDetector/@description | optional | 
+| genericDetector/@hasTriggeredSelfTest | optional | 
+| genericDetector/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| genericDetector/@selfTestInterval | optional | 
+| genericDetector/@selfTestToleranceTime | optional | 
+| genericDetector/detectorType | mandatory | 
+| genericDetector/detectorType/@ref | mandatory | Reference to instance of IL:hasDetectorTypes. xref:railML/recuring-elements/uses-types.adoc[See the UsesTypes page for more information.]
+| genericDetector/refersTo | optional | 
+| genericDetector/refersTo/@ref | mandatory | ID reference to corresponding IS:DetectorIS.
+| genericDetector/takesControlOf | mandatory | 
+| genericDetector/takesControlOf/@ref | mandatory | 
+|===
+
+== Key Locks IL
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| keyLockIL | mandatory | Equates to "K-nyckellås / kontrollås" in the swedish railway. See railML Wiki for details.
+| keyLockIL/@description | optional | 
+| keyLockIL/@function | mandatory | 
+| keyLockIL/@hasAutomaticKeyLock | optional | 
+| keyLockIL/@hasAutomaticKeyRelease | optional | 
+| keyLockIL/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| keyLockIL/@keyAuthoriseTime | optional | 
+| keyLockIL/@keyRequestTime | optional | 
+| keyLockIL/acceptsKey | optional | 
+| keyLockIL/acceptsKey/@ref | mandatory | 
+| keyLockIL/hasTvdSection | optional | 
+| keyLockIL/hasTvdSection/@ref | mandatory | 
+| keyLockIL/refersTo | mandatory | 
+| keyLockIL/refersTo/@ref | mandatory | 
+| keyLockIL/takesControlOf | mandatory | 
+| keyLockIL/takesControlOf/@ref | mandatory | 
+|===
+
+== Keys
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| key | mandatory | Equates to "K-nyckel / Kontrollåsnyckel" in the swedish railway. See railML Wiki for details.
+| key/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| key/isPhysical | optional | 
+|===
+
+== Level Crossings IL
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| levelCrossingIL | mandatory | A level crossing that has a connection to an interlocking, by indication and/or command. See railML Wiki for details.
+| levelCrossingIL/@constantWarningTime | mandatory | 
+| levelCrossingIL/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| levelCrossingIL/@maximumClosedTime | mandatory | 
+| levelCrossingIL/@minimumOpenTime | mandatory | 
+| levelCrossingIL/@preferredPosition | optional | 
+| levelCrossingIL/@typicalTimeToClose | mandatory | 
+| levelCrossingIL/activationCondition | mandatory | 
+| levelCrossingIL/activationCondition/@andOr | optional | 
+| levelCrossingIL/activationCondition/activatedBy | mandatory | 
+| levelCrossingIL/activationCondition/activatedBy/@delay | mandatory | 
+| levelCrossingIL/activationCondition/activatedBy/refersTo | mandatory | 
+| levelCrossingIL/activationCondition/activatedBy/refersTo/@ref | mandatory | 
+| levelCrossingIL/assetName | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| levelCrossingIL/deactivatedBy | mandatory | 
+| levelCrossingIL/deactivatedBy/@delay | mandatory | 
+| levelCrossingIL/deactivatedBy/tvdDetectorRef | mandatory | 
+| levelCrossingIL/deactivatedBy/tvdDetectorRef/@ref | mandatory | 
+| levelCrossingIL/isLevelCrossingType | mandatory | 
+| levelCrossingIL/isLevelCrossingType/@ref | mandatory | Reference to an instance of IL:hasLevelCrossingType.
+| levelCrossingIL/refersTo | mandatory | 
+| levelCrossingIL/refersTo/@ref | mandatory | 
+|===
+
+== Local Operation Areas
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| localOperationArea | mandatory | Equates to "temporärt lokalfrigivningsområde" in the swedish railway, and is sometimes referred to as "temporary shunting area" in english. See railML Wiki for details.
+| localOperationArea/@belongsToParent | optional | 
+| localOperationArea/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| localOperationArea/assetName | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| localOperationArea/crossingInPosition | optional | 
+| localOperationArea/crossingInPosition/@protectingSide | optional | 
+| localOperationArea/crossingInPosition/givenPosition | mandatory | 
+| localOperationArea/crossingInPosition/givenPosition/@isNegated | optional | 
+| localOperationArea/crossingInPosition/givenPosition/@mustOrShould | optional | 
+| localOperationArea/crossingInPosition/givenPosition/@proving | optional | 
+| localOperationArea/crossingInPosition/givenPosition/relatedCrossingAndPosition | mandatory | 
+| localOperationArea/crossingInPosition/givenPosition/relatedCrossingAndPosition/@inPosition | mandatory | 
+| localOperationArea/crossingInPosition/givenPosition/relatedCrossingAndPosition/refersToCrossing | mandatory | 
+| localOperationArea/crossingInPosition/givenPosition/relatedCrossingAndPosition/refersToCrossing/@ref | mandatory | 
+| localOperationArea/deactivationKey | optional | 
+| localOperationArea/deactivationKey/@ref | mandatory | 
+| localOperationArea/derailerInPosition | optional | 
+| localOperationArea/derailerInPosition/@protectingSide | optional | 
+| localOperationArea/derailerInPosition/givenPosition | mandatory | 
+| localOperationArea/derailerInPosition/givenPosition/@isNegated | optional | 
+| localOperationArea/derailerInPosition/givenPosition/@mustOrShould | optional | 
+| localOperationArea/derailerInPosition/givenPosition/@proving | optional | 
+| localOperationArea/derailerInPosition/givenPosition/relatedDerailerAndPosition | mandatory | 
+| localOperationArea/derailerInPosition/givenPosition/relatedDerailerAndPosition/@inPosition | mandatory | 
+| localOperationArea/derailerInPosition/givenPosition/relatedDerailerAndPosition/refersToDerailer | mandatory | 
+| localOperationArea/derailerInPosition/givenPosition/relatedDerailerAndPosition/refersToDerailer/@ref | mandatory | 
+| localOperationArea/detectorInState | optional | 
+| localOperationArea/detectorInState/givenState | mandatory | 
+| localOperationArea/detectorInState/givenState/@isNegated | optional | 
+| localOperationArea/detectorInState/givenState/@mustOrShould | optional | 
+| localOperationArea/detectorInState/givenState/@proving | optional | 
+| localOperationArea/detectorInState/givenState/relatedDetectorAndState | mandatory | 
+| localOperationArea/detectorInState/givenState/relatedDetectorAndState/@inState | mandatory | 
+| localOperationArea/detectorInState/givenState/relatedDetectorAndState/refersToDetector | mandatory | 
+| localOperationArea/detectorInState/givenState/relatedDetectorAndState/refersToDetector/@ref | mandatory | 
+| localOperationArea/isLimitedBy | mandatory | 
+| localOperationArea/isLimitedBy/@ref | mandatory | 
+| localOperationArea/keyLockInState | optional | 
+| localOperationArea/keyLockInState/@protectingSide | optional | 
+| localOperationArea/keyLockInState/givenState | mandatory | 
+| localOperationArea/keyLockInState/givenState/@isNegated | optional | 
+| localOperationArea/keyLockInState/givenState/@mustOrShould | optional | 
+| localOperationArea/keyLockInState/givenState/@proving | optional | 
+| localOperationArea/keyLockInState/givenState/relatedLockAndState | mandatory | 
+| localOperationArea/keyLockInState/givenState/relatedLockAndState/@inState | mandatory | 
+| localOperationArea/keyLockInState/givenState/relatedLockAndState/refersToKeyLock | mandatory | 
+| localOperationArea/keyLockInState/givenState/relatedLockAndState/refersToKeyLock/@ref | mandatory | 
+| localOperationArea/levelCrossingInState | optional | 
+| localOperationArea/levelCrossingInState/givenState | mandatory | 
+| localOperationArea/levelCrossingInState/givenState/@isNegated | optional | 
+| localOperationArea/levelCrossingInState/givenState/@mustOrShould | optional | 
+| localOperationArea/levelCrossingInState/givenState/@proving | optional | 
+| localOperationArea/levelCrossingInState/givenState/relatedLevelCrossingAndState | mandatory | 
+| localOperationArea/levelCrossingInState/givenState/relatedLevelCrossingAndState/@inState | mandatory | 
+| localOperationArea/levelCrossingInState/givenState/relatedLevelCrossingAndState/refersToLevelCrossing | mandatory | 
+| localOperationArea/levelCrossingInState/givenState/relatedLevelCrossingAndState/refersToLevelCrossing/@ref | mandatory | 
+| localOperationArea/releasedForLocalOperation | mandatory | 
+| localOperationArea/releasedForLocalOperation/@ref | mandatory | 
+| localOperationArea/signalWithAspect | optional | 
+| localOperationArea/signalWithAspect/@protectingSide | optional | 
+| localOperationArea/signalWithAspect/givenAspect | mandatory | 
+| localOperationArea/signalWithAspect/givenAspect/@isNegated | optional | 
+| localOperationArea/signalWithAspect/givenAspect/@mustOrShould | optional | 
+| localOperationArea/signalWithAspect/givenAspect/@proving | optional | 
+| localOperationArea/signalWithAspect/givenAspect/relatedSignalAndAspect | mandatory | 
+| localOperationArea/signalWithAspect/givenAspect/relatedSignalAndAspect/refersToSignal | mandatory | 
+| localOperationArea/signalWithAspect/givenAspect/relatedSignalAndAspect/refersToSignal/@ref | mandatory | 
+| localOperationArea/signalWithAspect/givenAspect/relatedSignalAndAspect/showsAspect | mandatory | 
+| localOperationArea/signalWithAspect/givenAspect/relatedSignalAndAspect/showsAspect/@ref | mandatory | 
+| localOperationArea/switchInPosition | optional | 
+| localOperationArea/switchInPosition/@protectingSide | optional | 
+| localOperationArea/switchInPosition/givenPosition | mandatory | 
+| localOperationArea/switchInPosition/givenPosition/@isNegated | optional | 
+| localOperationArea/switchInPosition/givenPosition/@mustOrShould | optional | 
+| localOperationArea/switchInPosition/givenPosition/@proving | optional | 
+| localOperationArea/switchInPosition/givenPosition/relatedSwitchAndPosition | mandatory | 
+| localOperationArea/switchInPosition/givenPosition/relatedSwitchAndPosition/@inPosition | mandatory | 
+| localOperationArea/switchInPosition/givenPosition/relatedSwitchAndPosition/refersToSwitch | mandatory | 
+| localOperationArea/switchInPosition/givenPosition/relatedSwitchAndPosition/refersToSwitch/@ref | mandatory | 
+| localOperationArea/trackAssetInArea | mandatory | 
+| localOperationArea/trackAssetInArea/@ref | mandatory | 
+|===
+
+== Movable Bridges
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| movableBridge | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| movableBridge/@description | optional | 
+| movableBridge/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| movableBridge/@technicalClosingTime | optional | 
+| movableBridge/@technicalOpenTime | optional | 
+| movableBridge/@typicalNonPassableTime | optional | 
+| movableBridge/assetName | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| movableBridge/refersTo | mandatory | 
+| movableBridge/refersTo/@ref | mandatory | 
+| movableBridge/takesControlOf | mandatory | 
+| movableBridge/takesControlOf/@ref | mandatory | 
+|===
+
+== Overlaps
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| overlap | mandatory | Equates to "frontskyddsområde". See railML Wiki for details.
+| overlap/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| overlap/@length | mandatory | 
+| overlap/@overlapValidityTime | optional | 
+| overlap/@releaseSpeed | mandatory | Equates to "Frisläppningshastighet".
+| overlap/activeForApproachRoute | mandatory | 
+| overlap/activeForApproachRoute/@ref | mandatory | 
+| overlap/additionalRelation | optional | Used to define requirements on objects within the ovarlap area that are not explicitly stated in the Overlap class itself.
+| overlap/additionalRelation/@ref | mandatory | ID reference to instance of IL:RouteRelation.
+| overlap/additionalRelation/@usage | mandatory | 
+| overlap/hasTvdSection | mandatory | 
+| overlap/hasTvdSection/@ref | mandatory | 
+| overlap/isLimitedBy | mandatory | 
+| overlap/isLimitedBy/@ref | mandatory | 
+| overlap/objectName | optional | 
+| overlap/objectName/@language | mandatory | 
+| overlap/objectName/@name | mandatory | 
+| overlap/overlapRelease | mandatory | Represents end of route release.
+| overlap/overlapRelease/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| overlap/overlapRelease/overlapReleaseTimer | mandatory | Timer for end of route release.
+| overlap/overlapRelease/overlapReleaseTimer/@overlapReleaseCondition | mandatory | 
+| overlap/overlapRelease/overlapReleaseTimer/@timerValue | mandatory | 
+| overlap/overlapRelease/releaseTriggerSection | mandatory | The track circuit that initiates the end of route release.
+| overlap/overlapRelease/releaseTriggerSection/@ref | mandatory | 
+| overlap/requiresLevelCrossingInState | optional | 
+| overlap/requiresLevelCrossingInState/relatedLevelCrossingAndState | mandatory | 
+| overlap/requiresLevelCrossingInState/relatedLevelCrossingAndState/@inState | mandatory | 
+| overlap/requiresLevelCrossingInState/relatedLevelCrossingAndState/refersToLevelCrossing | mandatory | 
+| overlap/requiresLevelCrossingInState/relatedLevelCrossingAndState/refersToLevelCrossing/@ref | mandatory | 
+| overlap/requiresSwitchInPosition | mandatory | 
+| overlap/requiresSwitchInPosition/relatedSwitchAndPosition | mandatory | 
+| overlap/requiresSwitchInPosition/relatedSwitchAndPosition/@inPosition | mandatory | 
+| overlap/requiresSwitchInPosition/relatedSwitchAndPosition/refersToSwitch | mandatory | 
+| overlap/requiresSwitchInPosition/relatedSwitchAndPosition/refersToSwitch/@ref | mandatory | 
+|===
+
+== Route Relations
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| routeRelation | mandatory | Defines additional protection requirements for a route that isn't part of the actual IL:Route element, for example flank protection (sidoskydd). See types in IL:additionalRelation. See railML Wiki for details.
+| routeRelation/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| routeRelation/requiredCrossingPosition | optional | 
+| routeRelation/requiredCrossingPosition/@isNegated | optional | 
+| routeRelation/requiredCrossingPosition/@mustOrShould | mandatory | 
+| routeRelation/requiredCrossingPosition/@proving | mandatory | 
+| routeRelation/requiredCrossingPosition/relatedCrossingAndPosition | mandatory | 
+| routeRelation/requiredCrossingPosition/relatedCrossingAndPosition/@inPosition | mandatory | 
+| routeRelation/requiredCrossingPosition/relatedCrossingAndPosition/@isNegated | optional | 
+| routeRelation/requiredCrossingPosition/relatedCrossingAndPosition/refersToCrossing | mandatory | 
+| routeRelation/requiredCrossingPosition/relatedCrossingAndPosition/refersToCrossing/@ref | mandatory | 
+| routeRelation/requiredDerailerPosition | optional | 
+| routeRelation/requiredDerailerPosition/@isNegated | optional | 
+| routeRelation/requiredDerailerPosition/@mustOrShould | mandatory | 
+| routeRelation/requiredDerailerPosition/@proving | mandatory | 
+| routeRelation/requiredDerailerPosition/relatedDerailerAndPosition | mandatory | 
+| routeRelation/requiredDerailerPosition/relatedDerailerAndPosition/@inPosition | mandatory | 
+| routeRelation/requiredDerailerPosition/relatedDerailerAndPosition/@isNegated | optional | 
+| routeRelation/requiredDerailerPosition/relatedDerailerAndPosition/refersToDerailer | mandatory | 
+| routeRelation/requiredDerailerPosition/relatedDerailerAndPosition/refersToDerailer/@ref | mandatory | 
+| routeRelation/requiredDetectorState | optional | 
+| routeRelation/requiredDetectorState/@isNegated | optional | 
+| routeRelation/requiredDetectorState/@mustOrShould | mandatory | 
+| routeRelation/requiredDetectorState/@proving | mandatory | 
+| routeRelation/requiredDetectorState/relatedDetectorAndState | mandatory | 
+| routeRelation/requiredDetectorState/relatedDetectorAndState/@inState | mandatory | 
+| routeRelation/requiredDetectorState/relatedDetectorAndState/@isNegated | optional | 
+| routeRelation/requiredDetectorState/relatedDetectorAndState/refersToDetector | mandatory | 
+| routeRelation/requiredDetectorState/relatedDetectorAndState/refersToDetector/@ref | mandatory | 
+| routeRelation/requiredKeyLockState | optional | 
+| routeRelation/requiredKeyLockState/@isNegated | optional | 
+| routeRelation/requiredKeyLockState/@mustOrShould | mandatory | 
+| routeRelation/requiredKeyLockState/@proving | mandatory | 
+| routeRelation/requiredKeyLockState/relatedLockAndState | mandatory | 
+| routeRelation/requiredKeyLockState/relatedLockAndState/@inState | mandatory | 
+| routeRelation/requiredKeyLockState/relatedLockAndState/@isNegated | optional | 
+| routeRelation/requiredKeyLockState/relatedLockAndState/refersToKeyLock | mandatory | 
+| routeRelation/requiredKeyLockState/relatedLockAndState/refersToKeyLock/@ref | mandatory | 
+| routeRelation/requiredLevelCrossingState | optional | 
+| routeRelation/requiredLevelCrossingState/@isNegated | optional | 
+| routeRelation/requiredLevelCrossingState/@mustOrShould | mandatory | 
+| routeRelation/requiredLevelCrossingState/@proving | mandatory | 
+| routeRelation/requiredLevelCrossingState/relatedLevelCrossingAndState | mandatory | 
+| routeRelation/requiredLevelCrossingState/relatedLevelCrossingAndState/@inState | mandatory | 
+| routeRelation/requiredLevelCrossingState/relatedLevelCrossingAndState/@isNegated | optional | 
+| routeRelation/requiredLevelCrossingState/relatedLevelCrossingAndState/refersToLevelCrossing | mandatory | 
+| routeRelation/requiredLevelCrossingState/relatedLevelCrossingAndState/refersToLevelCrossing/@ref | mandatory | 
+| routeRelation/requiredSectionState | optional | 
+| routeRelation/requiredSectionState/@isNegated | optional | 
+| routeRelation/requiredSectionState/@mustOrShould | mandatory | 
+| routeRelation/requiredSectionState/@proving | mandatory | 
+| routeRelation/requiredSectionState/relatedSectionAndVacancy | mandatory | 
+| routeRelation/requiredSectionState/relatedSectionAndVacancy/@inState | mandatory | 
+| routeRelation/requiredSectionState/relatedSectionAndVacancy/@isNegated | optional | 
+| routeRelation/requiredSectionState/relatedSectionAndVacancy/refersToSection | mandatory | 
+| routeRelation/requiredSectionState/relatedSectionAndVacancy/refersToSection/@ref | mandatory | 
+| routeRelation/requiredSignalAspect | optional | 
+| routeRelation/requiredSignalAspect/@isNegated | optional | 
+| routeRelation/requiredSignalAspect/@mustOrShould | mandatory | 
+| routeRelation/requiredSignalAspect/@proving | mandatory | 
+| routeRelation/requiredSignalAspect/relatedSignalAndAspect | mandatory | 
+| routeRelation/requiredSignalAspect/relatedSignalAndAspect/@isNegated | optional | 
+| routeRelation/requiredSignalAspect/relatedSignalAndAspect/refersToSignal | mandatory | 
+| routeRelation/requiredSignalAspect/relatedSignalAndAspect/refersToSignal/@ref | mandatory | 
+| routeRelation/requiredSignalAspect/relatedSignalAndAspect/showsAspect | mandatory | 
+| routeRelation/requiredSignalAspect/relatedSignalAndAspect/showsAspect/@ref | mandatory | 
+| routeRelation/requiredSwitchPosition | optional | 
+| routeRelation/requiredSwitchPosition/@isNegated | optional | 
+| routeRelation/requiredSwitchPosition/@mustOrShould | mandatory | 
+| routeRelation/requiredSwitchPosition/@proving | mandatory | 
+| routeRelation/requiredSwitchPosition/relatedSwitchAndPosition | mandatory | 
+| routeRelation/requiredSwitchPosition/relatedSwitchAndPosition/@inPosition | mandatory | 
+| routeRelation/requiredSwitchPosition/relatedSwitchAndPosition/@isNegated | optional | 
+| routeRelation/requiredSwitchPosition/relatedSwitchAndPosition/refersToSwitch | mandatory | 
+| routeRelation/requiredSwitchPosition/relatedSwitchAndPosition/refersToSwitch/@ref | mandatory | 
+|===
+
+== Route Release Groups Rear
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| routeReleaseGroupRear | mandatory | Group of TVD sections related to partial route release (partiell upplåsning). See railML Wiki for details.
+| routeReleaseGroupRear/@delay | mandatory | 
+| routeReleaseGroupRear/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| routeReleaseGroupRear/@typicalDelay | optional | 
+| routeReleaseGroupRear/hasTvdSection | mandatory | 
+| routeReleaseGroupRear/hasTvdSection/@ref | mandatory | 
+| routeReleaseGroupRear/objectName | optional | 
+| routeReleaseGroupRear/objectName/@language | mandatory | 
+| routeReleaseGroupRear/objectName/@name | mandatory | 
+|===
+
+== Routes
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| route | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| route/@approachReleaseDelay | optional | 
+| route/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| route/@locksAutomatically | optional | 
+| route/@proceedAspectDelay | optional | 
+| route/@processingDelay | optional | 
+| route/@residualRouteReleaseDelay | optional | 
+| route/@signalClosureDelay | optional | 
+| route/additionalRelation | mandatory | 
+| route/additionalRelation/@ref | mandatory | Used to reference additional protection requirements for the route. ID referrence to instance of IL:RouteRelation.
+| route/additionalRelation/@usage | mandatory | 
+| route/facingSwitchInPosition | mandatory | Equates to "motväxel i position" in swedish. https://en.wikipedia.org/wiki/Facing_and_trailing[See Wikipedia for details.]
+| route/facingSwitchInPosition/@inPosition | mandatory | 
+| route/facingSwitchInPosition/@isNegated | optional | 
+| route/facingSwitchInPosition/refersToSwitch | mandatory | 
+| route/facingSwitchInPosition/refersToSwitch/@ref | mandatory | 
+| route/handlesRouteType | mandatory | 
+| route/handlesRouteType/@ref | mandatory | Defines the type of route by referencing an instance of IL:hasRouteType. xref:railML/recuring-elements/uses-types.adoc[See the UsesTypes page for more information.]
+| route/hasReleaseGroup | optional | 
+| route/hasReleaseGroup/@ref | mandatory | Reference to an instance of IL:RouteReleaseGroupRear.
+| route/hasTvdSection | mandatory | 
+| route/hasTvdSection/@ref | mandatory | 
+| route/objectName | mandatory | 
+| route/objectName/@language | mandatory | 
+| route/objectName/@name | mandatory | 
+| route/routeActivationSection | mandatory | 
+| route/routeActivationSection/@automaticReleaseDelay | mandatory | 
+| route/routeActivationSection/@delayForLock | mandatory | 
+| route/routeActivationSection/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| route/routeActivationSection/activationSection | mandatory | 
+| route/routeActivationSection/activationSection/@ref | mandatory | 
+| route/routeEntry | mandatory | 
+| route/routeEntry/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| route/routeEntry/refersTo | mandatory | 
+| route/routeEntry/refersTo/@ref | mandatory | ID reference to infrastructure element acting as entry.
+| route/routeExit | mandatory | 
+| route/routeExit/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| route/routeExit/hasDangerPoint | optional | 
+| route/routeExit/hasDangerPoint/@ref | mandatory | 
+| route/routeExit/hasOverlap | mandatory | 
+| route/routeExit/hasOverlap/@ref | mandatory | 
+| route/routeExit/objectName | optional | 
+| route/routeExit/objectName/@language | mandatory | 
+| route/routeExit/objectName/@name | mandatory | 
+| route/routeExit/refersTo | mandatory | 
+| route/routeExit/refersTo/@ref | mandatory | ID reference to infrastructure element acting as exit.
+| route/switchPositionInDepartureTrack | optional | 
+| route/switchPositionInDepartureTrack/@inPosition | mandatory | 
+| route/switchPositionInDepartureTrack/@isNegated | optional | 
+| route/switchPositionInDepartureTrack/refersToSwitch | mandatory | 
+| route/switchPositionInDepartureTrack/refersToSwitch/@ref | mandatory | 
+|===
+
+== Shunting Zones
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| shuntingZone | mandatory | Equates to "permanent växlingsområde" in the swedish railway, and is sometimes referred to as "permanent shunting area" in english. See railML Wiki for details.
+| shuntingZone/@belongsToParent | optional | 
+| shuntingZone/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| shuntingZone/assetName | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| shuntingZone/isLimitedBy | mandatory | 
+| shuntingZone/isLimitedBy/@ref | mandatory | 
+| shuntingZone/trackAssetInArea | optional | 
+| shuntingZone/trackAssetInArea/@ref | mandatory | 
+|===
+
+== Signals IL
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| signalIL | mandatory | Used for light signals and fixed boards. See railML Wiki for details.
+| signalIL/@function | mandatory | 
+| signalIL/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| signalIL/@isNotWired | mandatory | 
+| signalIL/assetName | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| signalIL/hasRepeater | optional | 
+| signalIL/hasRepeater/@number | mandatory | 
+| signalIL/hasRepeater/@ref | mandatory | 
+| signalIL/refersTo | mandatory | 
+| signalIL/refersTo/@ref | mandatory | 
+|===
+
+== Switches IL
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| switchIL | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| switchIL/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| switchIL/@isKeyLocked | mandatory | 
+| switchIL/@localOperated | mandatory | 
+| switchIL/@numberOfBladeSwitchActuators | mandatory | 
+| switchIL/@numberOfFrogSwitchActuators | mandatory | 
+| switchIL/@preferredPosition | optional | This property MUST be set if the `@returnsToPreferredPosition` attribute is set to `TRUE`.
+| switchIL/@returnsToPreferredPosition | mandatory | 
+| switchIL/@trv:bladeMotorSide | mandatory | Indicates which side of the switch the blade motor is installed on (e.g. left or right).
+| switchIL/@trv:frogMotorSide | mandatory | Indicates which side of the switch the frog motor is installed on.
+| switchIL/@trv:hasBladePositionDetector | mandatory | Specifies whether the switch has blade position detectors (TKK) (true/false).
+| switchIL/@trv:switchMotor | mandatory | Defines the type or model of the switch motor used.
+| switchIL/assetName | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| switchIL/branchLeft | mandatory | 
+| switchIL/branchLeft/@ref | mandatory | 
+| switchIL/branchRight | mandatory | 
+| switchIL/branchRight/@ref | mandatory | 
+| switchIL/branchTip | optional | 
+| switchIL/branchTip/@ref | mandatory | 
+| switchIL/hasFoulingTrainDetectors | mandatory | 
+| switchIL/hasFoulingTrainDetectors/@ref | mandatory | ID reference to instance of IS:trainDetectionElement if required. See details in the railML Wiki.
+| switchIL/hasPositionRestriction | optional | 
+| switchIL/hasPositionRestriction/@restrictedPosition | optional | 
+| switchIL/hasPositionRestriction/relatedDerailerInPosition | optional | 
+| switchIL/hasPositionRestriction/relatedDerailerInPosition/@inPosition | mandatory | 
+| switchIL/hasPositionRestriction/relatedDerailerInPosition/refersToDerailer | mandatory | 
+| switchIL/hasPositionRestriction/relatedDerailerInPosition/refersToDerailer/@ref | mandatory | 
+| switchIL/hasPositionRestriction/relatedSwitchInPosition | optional | 
+| switchIL/hasPositionRestriction/relatedSwitchInPosition/@inPosition | mandatory | 
+| switchIL/hasPositionRestriction/relatedSwitchInPosition/refersToSwitch | mandatory | 
+| switchIL/hasPositionRestriction/relatedSwitchInPosition/refersToSwitch/@ref | mandatory | 
+| switchIL/hasTvdSection | mandatory | The TVD section in the actual switch.
+| switchIL/hasTvdSection/@ref | mandatory | 
+| switchIL/refersTo | mandatory | 
+| switchIL/refersTo/@ref | mandatory | 
+| switchIL/relatedMovableElement | optional | 
+| switchIL/relatedMovableElement/@ref | mandatory | 
+|===
+
+== Tracks IL
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| trackIL | mandatory | In this implementation, a track is the rail segment bounded by two intermediate signals ("mellansignaler" in swedish), where track-bound vehicles may stop to meet other traffic or to perform passenger or freight exchange. See the railML wiki for details.
+| trackIL/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| trackIL/assetName | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| trackIL/refersTo | mandatory | 
+| trackIL/refersTo/@ref | mandatory | 
+|===
+
+== Tunnel Gates IL
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| tunnelGateIL | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| tunnelGateIL/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| tunnelGateIL/refersTo | mandatory | 
+| tunnelGateIL/refersTo/@ref | mandatory | 
+|===
+
+== Tvd Sections
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| tvdSection | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| tvdSection/@frequency | optional | 
+| tvdSection/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| tvdSection/@isBerthingTrack | mandatory | Examples of this is a TVD section by a platform.
+| tvdSection/@partialRouteReleaseDelay | mandatory | 
+| tvdSection/@residualRouteCancellationDelay | mandatory | 
+| tvdSection/@technology | optional | 
+| tvdSection/assetName | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| tvdSection/hasDemarcatingBufferstop | optional | 
+| tvdSection/hasDemarcatingBufferstop/@ref | mandatory | 
+| tvdSection/hasDemarcatingTraindetector | mandatory | 
+| tvdSection/hasDemarcatingTraindetector/@ref | mandatory | 
+| tvdSection/hasExitSignal | optional | 
+| tvdSection/hasExitSignal/@ref | mandatory | 
+| tvdSection/hasResetStrategy | optional | Only used for axle counter sections.
+| tvdSection/hasResetStrategy/@ref | mandatory | 
+|===
+

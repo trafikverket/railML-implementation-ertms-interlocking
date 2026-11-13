@@ -1,0 +1,635 @@
+= Functional Infrastructure
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| baliseGroups | mandatory | 
+| balises | mandatory | 
+| borders | mandatory | 
+| bufferStops | mandatory | 
+| crossings | mandatory | 
+| derailersIS | mandatory | 
+| detectors | mandatory | 
+| electrifications | optional | The usage of this element depends on the specific needs in relation to a data exchange.
+| etcsAreas | mandatory | 
+| etcsLevelTransitions | mandatory | 
+| keyLocksIS | mandatory | 
+| levelCrossingsIS | mandatory | 
+| lines | mandatory | 
+| operationalPoints | mandatory | 
+| overCrossings | mandatory | 
+| platformEdges | mandatory | 
+| platforms | mandatory | 
+| radioBlockCentreBorders | mandatory | 
+| restrictionAreas | optional | 
+| signalsIS | mandatory | 
+| speeds | mandatory | 
+| stoppingPlaces | optional | 
+| switchesIS | mandatory | 
+| tracks | mandatory | 
+| trainDetectionElements | mandatory | 
+| tunnelGatesIS | optional | 
+| underCrossings | mandatory | 
+|===
+
+== Balise Groups
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| baliseGroup | mandatory | ATC and ETCS balise groups, see the railML wiki for details.
+| baliseGroup/@coverage | optional | 
+| baliseGroup/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| baliseGroup/@mileageDirection | mandatory | 
+| baliseGroup/@numberOfBalisesInGroup | mandatory | 
+| baliseGroup/applicationType | mandatory | 
+| baliseGroup/applicationType/@value | mandatory | 
+| baliseGroup/connectedWithInfrastructureElement | mandatory | 
+| baliseGroup/connectedWithInfrastructureElement/@ref | mandatory | 
+| baliseGroup/connectedWithInfrastructureElement/@type | mandatory | 
+| baliseGroup/functionalType | mandatory | 
+| baliseGroup/functionalType/@mileageDirection | mandatory | 
+| baliseGroup/functionalType/@value | mandatory | 
+| baliseGroup/isEurobaliseGroup | optional | 
+| baliseGroup/isEurobaliseGroup/@countryID | mandatory | 
+| baliseGroup/isEurobaliseGroup/@groupID | mandatory | 
+| baliseGroup/isEurobaliseGroup/@isLinked | mandatory | 
+| baliseGroup/isEurobaliseGroup/@linkReactionNominal | mandatory | 
+| baliseGroup/isEurobaliseGroup/@linkReactionReverse | mandatory | 
+| baliseGroup/isEurobaliseGroup/@locationAccuracy | mandatory | 
+| baliseGroup/isEurobaliseGroup/@mVersion | mandatory | 
+| baliseGroup/isEurobaliseGroup/@usesPackage44 | optional | 
+| baliseGroup/isEurobaliseGroup/@virtualCoverageID | optional | 
+| baliseGroup/isValid | optional | 
+| baliseGroup/isValid/@from | optional | 
+| baliseGroup/isValid/@to | optional | 
+| baliseGroup/name | mandatory | Assign `<NID_BG>` as name for Eurobalises.
+xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| baliseGroup/spotLocation | mandatory | The location of a balise group is defined by the position of its first balise.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+|===
+
+== Balises
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| balise | mandatory | ATC and ETCS balises, see the railML wiki for details.
+| balise/@basedOnTemplate | optional | 
+| balise/@belongsToBaliseGroup | mandatory | 
+| balise/@distanceToPredecessorBaliseWithinGroup | mandatory | 
+| balise/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| balise/@type | mandatory | 
+| balise/isEurobalise | optional | 
+| balise/isEurobalise/@duplicate | mandatory | 
+| balise/isEurobalise/@mVersion | mandatory | 
+| balise/isEurobalise/@positionInGroup | mandatory | 
+| balise/isValid | optional | 
+| balise/isValid/@from | optional | 
+| balise/isValid/@to | optional | 
+| balise/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| balise/spotLocation | mandatory | The location of a balise is defined by its geometric center.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+|===
+
+== Borders
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| border | mandatory | In this use-case border is used to define borders between stations to station, station to line, countries, or infrastructure managers.
+| border/@externalRef | optional | 
+| border/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| border/@isOpenEnd | mandatory | 
+| border/@type | mandatory | `station` is used for station, substation and linelocation borders.
+| border/isValid | optional | 
+| border/isValid/@from | optional | 
+| border/isValid/@to | optional | 
+| border/markedByInfrastructureElement | optional | 
+| border/markedByInfrastructureElement/@ref | mandatory | 
+| border/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| border/spotLocation | mandatory | Borders are positioned at the start or end of a network element that corresponds with a border point using a spot location with the intrinsic coordinate 0 or 1.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+|===
+
+== Buffer Stops
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| bufferStop | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| bufferStop/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| bufferStop/@type | optional | 
+| bufferStop/isValid | optional | 
+| bufferStop/isValid/@from | optional | 
+| bufferStop/isValid/@to | optional | 
+| bufferStop/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| bufferStop/spotLocation | mandatory | Buffer stops are positioned on net elements with a spot location.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+|===
+
+== Crossings
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| crossing | mandatory | Equates to "spårkors" in swedish. See railML Wiki for details.
+| crossing/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| crossing/isValid | optional | 
+| crossing/isValid/@from | optional | 
+| crossing/isValid/@to | optional | 
+| crossing/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| crossing/spotLocation | mandatory | Crossings are located by the geometric center point of the crossing.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| crossing/straightBranch | mandatory | 
+| crossing/straightBranch/@branchingSpeed | optional | 
+| crossing/straightBranch/@joiningSpeed | optional | 
+| crossing/straightBranch/@length | optional | 
+| crossing/straightBranch/@netRelationRef | mandatory | 
+| crossing/straightBranch/@radius | optional | 
+|===
+
+== Derailers IS
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| derailerIS | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| derailerIS/@derailSide | optional | 
+| derailerIS/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| derailerIS/@type | optional | 
+| derailerIS/isValid | optional | 
+| derailerIS/isValid/@from | optional | 
+| derailerIS/isValid/@to | optional | 
+| derailerIS/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| derailerIS/spotLocation | mandatory | Derailers are located using spot location, which should represent the geometric center of the derailer device.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+|===
+
+== Detectors
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| detector | mandatory | Detector is used to represent landslide, avalanche, (ras- och skredvarningssystem) and derailment (urspårningsslinga) detectors in this use-case.
+| detector/@detects | mandatory | The mapping from Swedish terms to railML terms is as follows: "ras" maps to `rocks`; "skred" maps to `other:landslide` or `other:avalanche` (depending on the type of "skred"); and "urspårningsslinga" maps to `other:derailment`.
+| detector/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| detector/areaLocation | optional | Depending on the type of detector different location methods are used, derailment, landslide, and avalanche detectors use linear, or area locations, other use spot location.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| detector/isValid | optional | 
+| detector/isValid/@from | optional | 
+| detector/isValid/@to | optional | 
+| detector/linearLocation | optional | Depending on the type of detector different location methods are used, derailment, landslide, and avalanche detectors use linear, or area locations, other use spot location.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| detector/linkedWith | optional | 
+| detector/linkedWith/@ref | mandatory | 
+| detector/name | mandatory | `<Name of closest station>-<USP (Up track)/NSP (Down track)/ESP (Single track)>-<track number if multiple tracks are present>`, e.g. `Luleå ESP`, or `Luleå USP U1`.
+xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| detector/spotLocation | optional | Depending on the type of detector different location methods are used, derailment, landslide, and avalanche detectors use linear, or area locations, other use spot location.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+|===
+
+== Electrifications
+
+The usage of this element depends on the specific needs in relation to a data exchange.
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| electrificationSection | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| electrificationSection/@belongsToParent | optional | 
+| electrificationSection/@contactLineType | mandatory | 
+| electrificationSection/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| electrificationSection/@isInsulatedSection | optional | 
+| electrificationSection/areaLocation | optional | Electrification sections are located via linear or area location, depending on their length or coverage.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| electrificationSection/electrificationSystemRef | mandatory | 
+| electrificationSection/electrificationSystemRef/@ref | mandatory | 
+| electrificationSection/energyCatenary | optional | 
+| electrificationSection/energyCatenary/@allowsRegenerativeBraking | optional | 
+| electrificationSection/energyCatenary/maxTrainCurrent | optional | 
+| electrificationSection/energyCatenary/maxTrainCurrent/@maxCurrent | optional | 
+| electrificationSection/energyCatenary/maxTrainCurrent/@trainType | optional | 
+| electrificationSection/energyCatenary/maxTrainCurrent/@validFor | optional | 
+| electrificationSection/etcsElectrification | optional | 
+| electrificationSection/etcsElectrification/@mVersion | mandatory | 
+| electrificationSection/etcsElectrification/@nid_ctraction | mandatory | 
+| electrificationSection/isValid | optional | 
+| electrificationSection/isValid/@from | optional | 
+| electrificationSection/isValid/@to | optional | 
+| electrificationSection/linearLocation | optional | Electrification sections are located via linear or area location, depending on their length or coverage.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| electrificationSection/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| electrificationSection/phaseSeparationSection | optional | 
+| electrificationSection/phaseSeparationSection/@lengthPhaseSeparation | mandatory | 
+| electrificationSection/phaseSeparationSection/@lowerPantograph | mandatory | 
+| electrificationSection/phaseSeparationSection/@switchOffBreaker | mandatory | 
+| electrificationSection/systemSeparationSection | optional | 
+| electrificationSection/systemSeparationSection/@isSupplySystemChange | mandatory | 
+| electrificationSection/systemSeparationSection/@lengthSystemSeparation | mandatory | 
+| electrificationSection/systemSeparationSection/@lowerPantograph | mandatory | 
+| electrificationSection/systemSeparationSection/@switchOffBreaker | mandatory | 
+|===
+
+== Etcs Areas
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| etcsArea | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| etcsArea/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| etcsArea/@mVersion | mandatory | 
+| etcsArea/areaLocation | optional | ETCS area elements are located using area location, representing the full extent of the ETCS-equipped network segments.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| etcsArea/isValid | optional | 
+| etcsArea/isValid/@from | optional | 
+| etcsArea/isValid/@to | optional | 
+|===
+
+== Etcs Level Transitions
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| etcsLevelTransition | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| etcsLevelTransition/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| etcsLevelTransition/isValid | optional | 
+| etcsLevelTransition/isValid/@from | optional | 
+| etcsLevelTransition/isValid/@to | optional | 
+| etcsLevelTransition/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| etcsLevelTransition/spotLocation | mandatory | ETCS level transitions are located at the same position as the level transition boards.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| etcsLevelTransition/switchToLevel | mandatory | 
+| etcsLevelTransition/switchToLevel/@lengthOfAcknowledgement | optional | 
+| etcsLevelTransition/switchToLevel/@levelType | mandatory | 
+| etcsLevelTransition/switchToLevel/@levelValue | mandatory | 
+| etcsLevelTransition/switchToLevel/@priority | mandatory | 
+|===
+
+== Key Locks IS
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| keyLockIS | mandatory | Key locks are the equivalent to "kontrollås", see the railML wiki for details.
+| keyLockIS/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| keyLockIS/isValid | optional | 
+| keyLockIS/isValid/@from | optional | 
+| keyLockIS/isValid/@to | optional | 
+| keyLockIS/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| keyLockIS/spotLocation | mandatory | KeyLockIS elements are located at their spot location, representing the specific point where the locking connection applies.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+|===
+
+== Level Crossings IS
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| levelCrossingIS | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| levelCrossingIS/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| levelCrossingIS/@lengthOfStoppingAreaBeforeLevelCrossing | optional | 
+| levelCrossingIS/areaLocation | mandatory | Level crossings are positioned using an area location that covers the full extent of the crossing area (e.g., from the start to the end of the road or walkway).
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| levelCrossingIS/etcsLevelCrossing | optional | 
+| levelCrossingIS/etcsLevelCrossing/@etcsID | mandatory | 
+| levelCrossingIS/etcsLevelCrossing/@mVersion | mandatory | 
+| levelCrossingIS/isValid | optional | 
+| levelCrossingIS/isValid/@from | optional | 
+| levelCrossingIS/isValid/@to | optional | 
+| levelCrossingIS/linkedSpeedSection | optional | 
+| levelCrossingIS/linkedSpeedSection/@ref | mandatory | 
+| levelCrossingIS/name | mandatory | SHOULD follow `<street name>-<ID or number>`, e.g. `Storgatan-12345`
+xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| levelCrossingIS/protection | optional | 
+| levelCrossingIS/protection/@hasActiveProtection | mandatory | 
+|===
+
+== Lines
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| line | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| line/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| line/@infrastructureManagerRef | optional | 
+| line/@lineCategory | optional | 
+| line/@lineType | mandatory | 
+| line/beginsInOP | mandatory | 
+| line/beginsInOP/@ref | mandatory | 
+| line/endsInOP | mandatory | 
+| line/endsInOP/@ref | mandatory | 
+| line/linearLocation | mandatory | Lines are positioned using linear location. For a single line the line element will normally only include one net element.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| line/lineLayout | optional | 
+| line/lineLayout/@numberOfTracks | mandatory | 
+| line/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+
+== Operational Points
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| operationalPoint | mandatory | Operational Points are used to describe a station (driftplats), substation (driftplatsdel), or line location (linjeplats). For further details see the railML wiki.
+| operationalPoint/@basedOnTemplate | optional | 
+| operationalPoint/@belongsToParent | optional | 
+| operationalPoint/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| operationalPoint/@timezone | optional | 
+| operationalPoint/areaLocation | mandatory | Area location is used to define all net elements within the scope of the Operational Point.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| operationalPoint/connectedToLine | mandatory | 
+| operationalPoint/connectedToLine/@ref | mandatory | 
+| operationalPoint/infrastructureManagerRef | mandatory | 
+| operationalPoint/infrastructureManagerRef/@ref | mandatory | 
+| operationalPoint/limitedByBorder | mandatory | 
+| operationalPoint/limitedByBorder/@ref | mandatory | 
+| operationalPoint/name | mandatory | SHOULD follow `<station name> (<abbreviated station name>)`, e.g. `Boden (Bdn)`.
+xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| operationalPoint/opEquipment | optional | 
+| operationalPoint/opEquipment/@numberOfStationTracks | optional | 
+| operationalPoint/opEquipment/ownsInfrastructureElement | optional | 
+| operationalPoint/opEquipment/ownsInfrastructureElement/@ref | mandatory | 
+| operationalPoint/opEquipment/ownsPlatform | optional | 
+| operationalPoint/opEquipment/ownsPlatform/@ref | mandatory | 
+| operationalPoint/opEquipment/ownsServiceSection | optional | 
+| operationalPoint/opEquipment/ownsServiceSection/@ref | mandatory | 
+| operationalPoint/opEquipment/ownsSignal | optional | 
+| operationalPoint/opEquipment/ownsSignal/@ref | mandatory | 
+| operationalPoint/opEquipment/ownsStoppingPlace | optional | 
+| operationalPoint/opEquipment/ownsStoppingPlace/@ref | mandatory | 
+| operationalPoint/opEquipment/ownsTrack | optional | 
+| operationalPoint/opEquipment/ownsTrack/@ref | mandatory | 
+| operationalPoint/opOperations | optional | 
+| operationalPoint/opOperations/opOperation | mandatory | 
+| operationalPoint/opOperations/opOperation/@operationalType | mandatory | `Station` and  `Stopping point` are the only types used.
+| operationalPoint/opOperations/opOperation/@trafficType | optional | 
+| operationalPoint/spotLocation | mandatory | Operational Points are positioned using one or more spot locations for the center point of the Operational Point (Platsmitt). 
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+|===
+
+== Over Crossings
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| overCrossing | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| overCrossing/@belongsToParent | optional | 
+| overCrossing/@constructionType | mandatory | 
+| overCrossing/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| overCrossing/@verbalConstraint | optional | 
+| overCrossing/crossesElement | mandatory | 
+| overCrossing/crossesElement/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| overCrossing/crossesElement/@ref | optional | 
+| overCrossing/crossesElement/@type | mandatory | 
+| overCrossing/crossesElement/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| overCrossing/length | optional | 
+| overCrossing/length/@type | mandatory | 
+| overCrossing/length/@validForDirection | optional | 
+| overCrossing/length/@value | mandatory | 
+| overCrossing/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| overCrossing/spotLocation | mandatory | Over crossings are positioned using a spot location on all tracks that the crossing crosses over.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+|===
+
+== Platform Edges
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| platformEdge | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| platformEdge/@belongsToPlatform | mandatory | 
+| platformEdge/@height | optional | 
+| platformEdge/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| platformEdge/length | mandatory | 
+| platformEdge/length/@type | mandatory | 
+| platformEdge/length/@validForDirection | optional | 
+| platformEdge/length/@value | mandatory | 
+| platformEdge/linearLocation | mandatory | Platform edges are located using a linear location along the physical platform edge.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| platformEdge/name | mandatory | The name SHOULD adhere to the following format `<abbreviated station name>-<track number>-<platform ID>`, e.g. `Bdn-5-1234`
+xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+
+== Platforms
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| platform | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| platform/@belongsToParent | optional | 
+| platform/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| platform/areaLocation | mandatory | xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| platform/isValid | optional | 
+| platform/isValid/@from | optional | 
+| platform/isValid/@to | optional | 
+| platform/name | mandatory | SHOULD follow `<abbreviated station name>-<first track number served>,<n.. track number served>`, e.g. `Bdn-1,2`.
+xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| platform/ownsPlatformEdge | mandatory | 
+| platform/ownsPlatformEdge/@ref | mandatory | 
+|===
+
+== Radio Block Centre Borders
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| radioBlockCentreBorder | mandatory | RBC borders can be defined in two ways, by the placement of a Border Balise Group (BBG) in the case of a RBC/RBC border, or a LTO_stm/e1 (Level Transition Order) balise group in the case of a E2/H border, see the railML wiki for details.
+| radioBlockCentreBorder/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| radioBlockCentreBorder/@kindOfTransition | optional | 
+| radioBlockCentreBorder/belongsToRadioBlockCentre | mandatory | 
+| radioBlockCentreBorder/belongsToRadioBlockCentre/@ref | mandatory | 
+| radioBlockCentreBorder/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| radioBlockCentreBorder/spotLocation | mandatory | Radio block centre borders are located at the exact handover point via spot location.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+|===
+
+== Restriction Areas
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| restrictionArea | optional | Equates to "spåregenskaper" in the document "Signaltekniska funktionskrav". See railML Wiki for details.
+| restrictionArea/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| restrictionArea/@type | mandatory | 
+| restrictionArea/areaLocation | optional | Restriction areas are located using an area or linear location.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| restrictionArea/linearLocation | optional | Restriction areas are located using an area or linear location.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| restrictionArea/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+
+== Signals IS
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| signalIS | mandatory | In this use-case the signalIS element MUST only be used for signals and boards that are concidered to be part of the signaling domain, e.g. ETCS marker boards, light  signals, orientation boards, and so on. Boards related to other domains, such as track, MUST be excluded.
+| signalIS/@basedOnTemplate | optional | 
+| signalIS/@belongsToParent | optional | 
+| signalIS/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| signalIS/@isSwitchable | optional | 
+| signalIS/isAnnouncementSignal | optional | 
+| signalIS/isCatenarySignal | optional | 
+| signalIS/isCatenarySignal/@type | mandatory | 
+| signalIS/isCatenarySignal/refersToElectrificationSection | optional | 
+| signalIS/isCatenarySignal/refersToElectrificationSection/@ref | mandatory | 
+| signalIS/isDangerSignal | optional | 
+| signalIS/isEtcsSignal | optional | 
+| signalIS/isInformationSignal | optional | 
+| signalIS/isLevelCrossingSignal | optional | 
+| signalIS/isLevelCrossingSignal/@type | mandatory | 
+| signalIS/isLevelCrossingSignal/refersToLevelCrossing | mandatory | 
+| signalIS/isLevelCrossingSignal/refersToLevelCrossing/@ref | mandatory | 
+| signalIS/isMilepost | optional | 
+| signalIS/isMilepost/@shownValue | mandatory | 
+| signalIS/isSpeedSignal | optional | 
+| signalIS/isSpeedSignal/@type | optional | 
+| signalIS/isSpeedSignal/refersToBeginOfSpeedSection | mandatory | 
+| signalIS/isSpeedSignal/refersToBeginOfSpeedSection/@ref | mandatory | 
+| signalIS/isSpeedSignal/refersToEndOfSpeedSection | mandatory | 
+| signalIS/isSpeedSignal/refersToEndOfSpeedSection/@ref | mandatory | 
+| signalIS/isStopPost | optional | 
+| signalIS/isStopPost/refersToStoppingPlace | optional | 
+| signalIS/isStopPost/refersToStoppingPlace/@ref | mandatory | 
+| signalIS/isTrainMovementSignal | optional | 
+| signalIS/isTrainRadioSignal | optional | 
+| signalIS/isTrainRadioSignal/refersToTrainRadioSection | optional | 
+| signalIS/isTrainRadioSignal/refersToTrainRadioSection/@ref | mandatory | 
+| signalIS/isVehicleEquipmentSignal | optional | 
+| signalIS/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| signalIS/protectedByBaliseGroup | mandatory | 
+| signalIS/protectedByBaliseGroup/@ref | mandatory | 
+| signalIS/signalConstruction | mandatory | 
+| signalIS/signalConstruction/@positionAtTrack | mandatory | 
+| signalIS/signalConstruction/@type | mandatory | 
+| signalIS/spotLocation | mandatory | Signals are positioned in on the net element with a spot location using the intrinsic coordinate.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+|===
+
+== Speeds
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| speedSection | mandatory | Speed section defines the location where speed profiles applies. For non ERTMS sections there are four speedSections, i.e. train categories A/B/C/S. For sections where ERMTS is implemented ten speedSections should be populated for the greatest speed allowed (STH), one for each level of rail cant deficiency. For further details see the railML wiki.
+| speedSection/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| speedSection/@isTemporary | optional | 
+| speedSection/@maxSpeed | mandatory | 
+| speedSection/@refersToTrain | optional | 
+| speedSection/linearLocation | mandatory | Speed sections are positioned using linear location.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| speedSection/name | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| speedSection/validForSpeedProfile | mandatory | 
+| speedSection/validForSpeedProfile/@ref | mandatory | 
+|===
+
+== Stopping Places
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| stoppingPlace | mandatory | Equates to "Uppehållsfunktion (tidigare plattformsanläggning)" in the document "Signaltekniska funktionskrav", see railML wiki for details.
+| stoppingPlace/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| stoppingPlace/spotLocation | mandatory | xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+|===
+
+== Switches IS
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| switchIS | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| switchIS/@belongsToParent | optional | 
+| switchIS/@branchCourse | mandatory | 
+| switchIS/@continueCourse | mandatory | 
+| switchIS/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| switchIS/@type | mandatory | 
+| switchIS/areaLocation | mandatory | Switches are positioned using area location. Where applicable the front stock rail-joint (FSK) shuld be used over mathematical crossing points (MKP), or similar parts of the switch.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| switchIS/leftBranch | mandatory | 
+| switchIS/leftBranch/@netRelationRef | mandatory | 
+| switchIS/locationReference | mandatory | 
+| switchIS/locationReference/@referencePoint | mandatory | 
+| switchIS/locationReference/@tangentLength | mandatory | 
+| switchIS/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| switchIS/rightBranch | mandatory | 
+| switchIS/rightBranch/@netRelationRef | mandatory | 
+| switchIS/straightBranch | optional | 
+| switchIS/straightBranch/@netRelationRef | mandatory | 
+| switchIS/turningBranch | optional | 
+| switchIS/turningBranch/@netRelationRef | mandatory | 
+|===
+
+== Tracks
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| track | mandatory | In this implementation, a track is the rail segment bounded by two intermediate signals ("mellansignaler" in swedish), where track-bound vehicles may stop to meet other traffic or to perform passenger or freight exchange. See the railML wiki for details.
+| track/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| track/@infrastructureManagerRef | mandatory | 
+| track/@mainDirection | mandatory | 
+| track/length | mandatory | 
+| track/length/@type | mandatory | 
+| track/length/@value | mandatory | 
+| track/linearLocation | mandatory | xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| track/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| track/trackBegin | mandatory | 
+| track/trackBegin/@ref | mandatory | 
+| track/trackEnd | mandatory | 
+| track/trackEnd/@ref | mandatory | 
+|===
+
+== Train Detection Elements
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| trainDetectionElement | mandatory | In this implementation this element is used for track circuits, and insulated rail joints. See the railML wiki for details.
+| trainDetectionElement/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| trainDetectionElement/@type | mandatory | 
+| trainDetectionElement/areaLocation | optional | Track circuits are positioned using area location that starts, and ends at each delimiting insulated rail joint or track ends.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| trainDetectionElement/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| trainDetectionElement/spotLocation | optional | Insulated rail joint are positioned using spot location.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+|===
+
+== Tunnel Gates IS
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| tunnelGateIS | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| tunnelGateIS/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| tunnelGateIS/@installedInTunnel | optional | 
+| tunnelGateIS/name | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| tunnelGateIS/spotLocation | mandatory | Tunnel gates are located using spot location where a tunnel gate crosses the track, or signal is placed.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+|===
+
+== Under Crossings
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| underCrossing | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| underCrossing/@belongsToParent | optional | 
+| underCrossing/@constructionType | mandatory | 
+| underCrossing/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| underCrossing/@verbalConstraint | optional | 
+| underCrossing/crossesElement | optional | 
+| underCrossing/crossesElement/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| underCrossing/crossesElement/@ref | optional | 
+| underCrossing/crossesElement/@type | mandatory | 
+| underCrossing/crossesElement/name | optional | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| underCrossing/length | optional | 
+| underCrossing/length/@type | mandatory | 
+| underCrossing/length/@validForDirection | optional | 
+| underCrossing/length/@value | mandatory | 
+| underCrossing/linearLocation | mandatory | Under crossings are positioned using a linear location on all tracks that the crossing crosses under.
+xref:railML/recuring-elements/object-positioning.adoc[See the Object Positioning page for more information.]
+| underCrossing/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+

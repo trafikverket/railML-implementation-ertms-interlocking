@@ -1,0 +1,62 @@
+= Positioning
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| geometricPositioningSystems | optional | 
+| linearPositioningSystems | mandatory | 
+| screenPositioningSystems | mandatory | 
+|===
+
+== Geometric Positioning Systems
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| geometricPositioningSystem | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| geometricPositioningSystem/@crsDefinition | mandatory | MUST be set to an https://epsg.io/[EPSG.io: Coordinate Systems Worldwide]-defined CRS code that is relevant to the context.
+| geometricPositioningSystem/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| geometricPositioningSystem/isValid | mandatory | 
+| geometricPositioningSystem/isValid/@from | optional | 
+| geometricPositioningSystem/isValid/@to | optional | 
+| geometricPositioningSystem/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+
+== Linear Positioning Systems
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| linearPositioningSystem | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| linearPositioningSystem/@endMeasure | mandatory | MUST be assigned the maximum linear position value for the dataset, expressed in metres.
+| linearPositioningSystem/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| linearPositioningSystem/@linearReferencingMethod | mandatory | 
+| linearPositioningSystem/@startMeasure | mandatory | MUST be assigned the minimum linear position value for the dataset, expressed in metres.
+| linearPositioningSystem/@units | mandatory | MUST be set to the SI symbol for meter, `m`.
+| linearPositioningSystem/anchor | mandatory | 
+| linearPositioningSystem/anchor/@anchorName | optional | 
+| linearPositioningSystem/anchor/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| linearPositioningSystem/anchor/@measure | mandatory | 
+| linearPositioningSystem/anchor/@measureToNext | mandatory | 
+| linearPositioningSystem/isValid | mandatory | 
+| linearPositioningSystem/isValid/@from | optional | 
+| linearPositioningSystem/isValid/@to | optional | 
+| linearPositioningSystem/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+
+== Screen Positioning Systems
+
+[cols="10, 2, 4", options="header"]
+|===
+| XPath | Requirement Level | Description
+| screenPositioningSystem | mandatory | No specific comments on the usage of this element, see the railML wiki for details.
+| screenPositioningSystem/@id | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+| screenPositioningSystem/@pxX | mandatory | Pixel resolution in dimension X.
+| screenPositioningSystem/@pxY | mandatory | Pixel resolution in dimension Y.
+| screenPositioningSystem/@pxZ | optional | Pixel resolution in dimension Z.
+| screenPositioningSystem/isValid | mandatory | 
+| screenPositioningSystem/isValid/@from | optional | 
+| screenPositioningSystem/isValid/@to | optional | 
+| screenPositioningSystem/name | mandatory | xref:railML/recuring-elements/common-conventions.adoc[See the Common Conventions page for more information.]
+|===
+
